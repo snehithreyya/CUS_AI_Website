@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 4 — 2026-08-11
+- **Service detail pages built (4):** technology-consulting.html, software-development.html, cloud-solutions.html, engineering-services.html. Each has a hero with Home / Services / <page> breadcrumb, a "What we deliver" capabilities grid (6 items), a 4-step engagement model, a Tools & Technologies chip strip, a Related practice areas cross-link grid, and CTA — all reusing the shared header, footer, and AI chat widget.
+- **Nav wired for consistency:** each services.html core-practice card now has a "Learn more" link to its detail page; footer "Verticals" links across index.html, about.html, and services.html now point to the four detail pages instead of the generic services.html.
+- Verified: node --check on js/main.js; HTML well-formedness + local link/asset existence checks passed on all 7 pages.
+
+### Next up
+- industries.html (verticals overview).
+- careers.html + students.html.
+- contact.html with a validated lead form (mailto or form-service placeholder).
+- SEO polish: sitemap.xml, robots.txt, Open Graph across all pages; WCAG 2.1 AA pass.
+- Expand the assistant KB in js/main.js with lead-capture + booking intents; add RAG backend hook.
+
 ## Day 3 — 2026-08-10
 - **Services overview page (services.html)** built end-to-end: page hero with breadcrumb, four core practice cards (Technology Consulting, Software Development, Cloud Solutions, Engineering Services) each with a capability list, a Specialized Capabilities strip (Cybersecurity, Data & AI, Staffing & Workforce), a 4-step engagement model (Discover → Design → Deliver → Scale), and CTA — reusing the shared header, footer, and AI chat widget.
 - Nav made consistent across all pages: "Services" now links to services.html (desktop nav, mobile menu) on index.html and about.html. Footer "Verticals" links now point to services.html.

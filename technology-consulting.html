@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology Consulting | CUS Solution</title>
+  <meta name="description" content="Strategic technology consulting from CUS Solution — digital transformation roadmaps, enterprise architecture, process automation, and systems integration that modernize how you operate." />
+  <meta property="og:title" content="Technology Consulting | CUS Solution" />
+  <meta property="og:description" content="Strategic technology consulting from CUS Solution — digital transformation roadmaps, enterprise architecture, process automation, and systems integration that modernize how you operate." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          navy: { 900:'#0a1633', 800:'#0f2350', 700:'#14306e' },
+          brand: { 400:'#5b8bff', 500:'#2f6bff', 600:'#1e56d6' },
+          cyan: { 400:'#38bdf8' }
+        },
+        fontFamily: { sans:['Inter','sans-serif'], display:['Sora','sans-serif'] }
+      } }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-white font-display font-extrabold text-lg">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+        </span>
+        CUS<span class="text-brand-400">Solution</span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-sm text-slate-200">
+        <a href="index.html" class="hover:text-white transition">Home</a>
+        <a href="about.html" class="hover:text-white transition">About</a>
+        <a href="services.html" class="text-white font-semibold">Services</a>
+        <a href="index.html#industries" class="hover:text-white transition">Industries</a>
+        <a href="index.html#why" class="hover:text-white transition">Why CUS</a>
+        <a href="index.html#faq" class="hover:text-white transition">FAQ</a>
+        <a href="index.html#contact" class="hover:text-white transition">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="index.html#contact" class="btn btn-ghost text-sm">Explore Careers</a>
+        <a href="index.html#contact" class="btn btn-primary text-sm">Hire Talent</a>
+      </div>
+
+      <button id="nav-toggle" aria-label="Menu" aria-expanded="false" class="lg:hidden text-white p-2">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-navy-800 border-t border-white/10 px-5 py-4 space-y-3 text-slate-200">
+      <a href="index.html" class="block hover:text-white">Home</a>
+      <a href="about.html" class="block hover:text-white">About</a>
+      <a href="services.html" class="block text-white font-semibold">Services</a>
+      <a href="index.html#industries" class="block hover:text-white">Industries</a>
+      <a href="index.html#why" class="block hover:text-white">Why CUS</a>
+      <a href="index.html#faq" class="block hover:text-white">FAQ</a>
+      <a href="index.html#contact" class="block hover:text-white">Contact</a>
+      <div class="flex gap-3 pt-2">
+        <a href="index.html#contact" class="btn btn-ghost text-sm flex-1 justify-center">Careers</a>
+        <a href="index.html#contact" class="btn btn-primary text-sm flex-1 justify-center">Hire Talent</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ PAGE HERO ============ -->
+  <section class="hero-surface relative overflow-hidden">
+    <div class="absolute inset-0 grid-overlay"></div>
+    <div class="relative max-w-7xl mx-auto px-5 py-24 md:py-28">
+      <nav class="text-sm text-slate-400 mb-6" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-white">Home</a> <span class="mx-2 text-slate-600">/</span> <a href="services.html" class="hover:text-white">Services</a> <span class="mx-2 text-slate-600">/</span> <span class="text-slate-200">Technology Consulting</span>
+      </nav>
+      <div class="max-w-3xl">
+        <span class="chip mb-6"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Advisory &amp; Strategy</span>
+        <h1 class="font-display text-4xl md:text-6xl font-extrabold text-white leading-[1.05]">
+          Modernize with a
+          <span class="brand-gradient"> clear technology strategy.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-300 leading-relaxed">We help organizations turn ambitious goals into a pragmatic technology roadmap. Our consultants combine architecture depth with delivery experience, so recommendations are grounded in what can actually ship — not slideware. Whether you are modernizing legacy systems, integrating platforms, or automating manual work, we bring the strategy and the hands to execute it.</p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href="index.html#contact" class="btn btn-primary">Start an engagement
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#deliver" class="btn btn-ghost">What we deliver</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT WE DELIVER ============ -->
+  <section id="deliver" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <span class="text-brand-600 font-semibold text-sm tracking-wide uppercase">What We Deliver</span>
+        <h2 class="mt-3 font-display text-3xl md:text-4xl font-bold text-navy-900">Capabilities in this practice</h2>
+        <p class="mt-4 text-slate-500">Engage a single capability or combine them into an end-to-end program.</p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card p-7 reveal">
+          <h3 class="font-display font-bold text-navy-900 text-lg">Digital transformation roadmaps</h3>
+          <p class="mt-2 text-sm text-slate-500">Assess current-state systems and build a phased, ROI-driven modernization plan aligned to business priorities.</p>
+        </div>
+        <div class="card p-7 reveal">
+          <h3 class="font-display font-bold text-navy-900 text-lg">Enterprise architecture</h3>
+          <p class="mt-2 text-sm text-slate-500">Design scalable, secure architectures and target-state blueprints that reduce technical debt and future-proof your stack.</p>
+        </div>
+        <div class="card p-7 reveal">
+          <h3 class="font-display font-bold text-navy-900 text-lg">Process automation</h3>
+          <p class="mt-2 text-sm text-slate-500">Identify high-friction workflows and automate them with the right mix of integration, RPA, and custom tooling.</p>
+        </div>
+        <div class="card p-7 reveal">
+          <h3 class="font-display font-bold text-navy-900 text-lg">Systems integration</h3>
+          <p class="mt-2 text-sm text-slate-500">Connect disparate applications and data sources into reliable, well-governed end-to-end flows.</p>
+        </div>
+        <div class="card p-7 reveal">
+          <h3 class="font-display font-bold text-navy-900 text-lg">Technology due diligence</h3>
+          <p class="mt-2 text-sm text-slate-500">Evaluate platforms, vendors, and build-vs-buy decisions with objective, delivery-informed analysis.</p>
+        </div>
+        <div class="card p-7 reveal">
+          <h3 class="font-display font-bold text-navy-900 text-lg">Advisory &amp; governance</h3>
+          <p class="mt-2 text-sm text-slate-500">Stand up the operating model, standards, and review cadences that keep transformation on track.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENGAGEMENT MODEL ============ -->
+  <section class="section-dark py-24">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <span class="text-cyan-400 font-semibold text-sm tracking-wide uppercase">How We Engage</span>
+        <h2 class="mt-3 font-display text-3xl md:text-4xl font-bold text-white">A clear path from idea to production</h2>
+        <p class="mt-4 text-slate-400">A consistent methodology that keeps delivery predictable and aligned to your goals.</p>
+      </div>
+      <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="card-dark p-7 reveal"><div class="font-display text-2xl font-bold text-cyan-400">01</div><h3 class="mt-3 font-semibold text-white text-lg">Discover</h3><p class="mt-2 text-sm text-slate-400">We map your goals, systems, and constraints to define scope and measurable outcomes.</p></div>
+        <div class="card-dark p-7 reveal"><div class="font-display text-2xl font-bold text-cyan-400">02</div><h3 class="mt-3 font-semibold text-white text-lg">Design</h3><p class="mt-2 text-sm text-slate-400">Architecture, roadmap, and the right team — assembled around your specific problem.</p></div>
+        <div class="card-dark p-7 reveal"><div class="font-display text-2xl font-bold text-cyan-400">03</div><h3 class="mt-3 font-semibold text-white text-lg">Deliver</h3><p class="mt-2 text-sm text-slate-400">Iterative execution with rigorous review and enterprise-grade engineering practices.</p></div>
+        <div class="card-dark p-7 reveal"><div class="font-display text-2xl font-bold text-cyan-400">04</div><h3 class="mt-3 font-semibold text-white text-lg">Scale</h3><p class="mt-2 text-sm text-slate-400">We harden, optimize, and support — so what we ship holds up in production and at scale.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOLS & TECH ============ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-5 text-center">
+      <span class="text-brand-600 font-semibold text-sm tracking-wide uppercase reveal">Tools &amp; Technologies</span>
+      <h2 class="mt-3 font-display text-3xl md:text-4xl font-bold text-navy-900 reveal">Fluent in the modern toolchain</h2>
+      <div class="mt-10 flex flex-wrap justify-center gap-3 reveal">
+        <span class="chip">Enterprise Architecture</span>
+        <span class="chip">TOGAF</span>
+        <span class="chip">Azure</span>
+        <span class="chip">AWS</span>
+        <span class="chip">Integration</span>
+        <span class="chip">APIs</span>
+        <span class="chip">RPA</span>
+        <span class="chip">Data Strategy</span>
+        <span class="chip">Governance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RELATED SERVICES ============ -->
+  <section class="section-dark py-24">
+    <div class="max-w-7xl mx-auto px-5">
+      <div class="text-center max-w-2xl mx-auto reveal">
+        <span class="text-cyan-400 font-semibold text-sm tracking-wide uppercase">Explore More</span>
+        <h2 class="mt-3 font-display text-3xl md:text-4xl font-bold text-white">Related practice areas</h2>
+      </div>
+      <div class="mt-14 grid md:grid-cols-3 gap-6">
+        <a href="software-development.html" class="card p-6 reveal group">
+          <div class="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-600 grid place-items-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 5l-2 14"/></svg></div>
+          <h3 class="mt-4 font-display font-bold text-navy-900 group-hover:text-brand-600 transition">Software Development</h3>
+          <span class="mt-2 inline-flex items-center gap-1 text-sm text-brand-600 font-semibold">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="cloud-solutions.html" class="card p-6 reveal group">
+          <div class="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-600 grid place-items-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10a4 4 0 0 0-7.5-2A4.5 4.5 0 1 0 7 18h11a3.5 3.5 0 0 0 0-8z"/></svg></div>
+          <h3 class="mt-4 font-display font-bold text-navy-900 group-hover:text-brand-600 transition">Cloud Solutions</h3>
+          <span class="mt-2 inline-flex items-center gap-1 text-sm text-brand-600 font-semibold">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="engineering-services.html" class="card p-6 reveal group">
+          <div class="w-11 h-11 rounded-xl bg-brand-500/10 text-brand-600 grid place-items-center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <h3 class="mt-4 font-display font-bold text-navy-900 group-hover:text-brand-600 transition">Engineering Services</h3>
+          <span class="mt-2 inline-flex items-center gap-1 text-sm text-brand-600 font-semibold">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+      <div class="mt-12 text-center reveal">
+        <a href="services.html" class="btn btn-ghost">View all services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="hero-surface relative overflow-hidden">
+    <div class="absolute inset-0 grid-overlay"></div>
+    <div class="relative max-w-5xl mx-auto px-5 py-24 text-center">
+      <h2 class="font-display text-3xl md:text-5xl font-bold text-white reveal">Ready to get started?</h2>
+      <p class="mt-5 text-slate-300 max-w-xl mx-auto reveal">Tell us what you're building. We'll help you scope the right approach — or the right team — to get it done.</p>
+      <div class="mt-9 flex flex-wrap justify-center gap-4 reveal">
+        <a href="mailto:info@cussolution.com" class="btn btn-primary">Email the team</a>
+        <a href="tel:+13073135867" class="btn btn-ghost">+1 (307) 313-5867</a>
+      </div>
+      <p class="mt-6 text-slate-400 text-sm reveal">info@cussolution.com &nbsp;·&nbsp; US-based &nbsp;·&nbsp; Response within 1 business day</p>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-navy-900 text-slate-400 pt-16 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-2 text-white font-display font-extrabold text-lg mb-4">
+          <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+          </span>CUS Solution
+        </div>
+        <p class="text-sm">Technology consulting, staffing, and in-house innovation for enterprise delivery.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm">Verticals</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="technology-consulting.html" class="hover:text-white">Technology Consulting</a></li>
+          <li><a href="software-development.html" class="hover:text-white">Software Development</a></li>
+          <li><a href="cloud-solutions.html" class="hover:text-white">Cloud Solutions</a></li>
+          <li><a href="engineering-services.html" class="hover:text-white">Engineering Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-white">About Us</a></li>
+          <li><a href="index.html#contact" class="hover:text-white">Careers</a></li>
+          <li><a href="index.html#contact" class="hover:text-white">Students</a></li>
+          <li><a href="index.html#contact" class="hover:text-white">Inquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm">Connect</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://www.linkedin.com/company/cus-solution" class="hover:text-white" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/cus_solution/" class="hover:text-white" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:info@cussolution.com" class="hover:text-white">info@cussolution.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-5 mt-12 pt-6 border-t border-white/10 text-sm">
+      © <span id="year">2026</span> CUS Solution. US based technology consulting &amp; staffing.
+    </div>
+  </footer>
+
+  <!-- ============ AI ASSISTANT WIDGET ============ -->
+  <button id="chat-launcher" aria-label="Open AI assistant">
+    <span class="dot"></span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+
+  <div id="chat-panel" role="dialog" aria-label="CUS Solution AI assistant">
+    <div class="chat-head flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-white/15">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+        </span>
+        <div>
+          <div class="font-semibold leading-tight">CUS Assistant</div>
+          <div class="text-xs text-slate-300">Online · answers 24/7</div>
+        </div>
+      </div>
+      <button id="chat-close" aria-label="Close" class="text-slate-300 hover:text-white text-xl leading-none">×</button>
+    </div>
+    <div id="chat-body" class="chat-body"></div>
+    <div class="chat-suggestions">
+      <span class="sugg">What services do you offer?</span>
+      <span class="sugg">I want to hire talent</span>
+      <span class="sugg">Explore careers</span>
+      <span class="sugg">Contact the team</span>
+    </div>
+    <div class="chat-input">
+      <input id="chat-text" type="text" placeholder="Ask about services, careers, hiring…" autocomplete="off" />
+      <button id="chat-send" class="chat-send" aria-label="Send">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
