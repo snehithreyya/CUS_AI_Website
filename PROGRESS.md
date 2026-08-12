@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 5 — 2026-08-12
+- **Industries page built (industries.html):** page hero with Home / Industries breadcrumb, intro + 3 stat highlights (11+ industries, US-based, 24/7 assistant), a "Sectors we empower" grid of 11 industries (Information Technology, Healthcare, Finance & Banking, Insurance, Manufacturing, Retail, Supply Chain & Logistics, Telecommunications, Engineering Services, Pharmaceuticals, Biotechnology) each with an icon + description, plus a "Don't see your sector?" cross-industry card, a "How We Serve" trio (compliance-aware, domain-fluent teams, outcome-focused), and CTA — all reusing the shared header, footer, and AI chat widget.
+- **Nav wired for consistency:** the "Industries" link in the desktop nav and mobile menu across all pages (index, about, services, and the 4 service detail pages) now points to industries.html instead of the index.html#industries on-page anchor. Footer "Company" column now includes an Industries link.
+- Verified: node --check on js/main.js; HTML well-formedness + local link/asset existence checks passed on all 8 pages.
+
+### Next up
+- careers.html + students.html.
+- contact.html with a validated lead form (mailto or form-service placeholder).
+- SEO polish: sitemap.xml, robots.txt, Open Graph across all pages; WCAG 2.1 AA pass.
+- Expand the assistant KB in js/main.js with lead-capture + booking intents; add RAG backend hook.
+
 ## Day 4 — 2026-08-11
 - **Service detail pages built (4):** technology-consulting.html, software-development.html, cloud-solutions.html, engineering-services.html. Each has a hero with Home / Services / <page> breadcrumb, a "What we deliver" capabilities grid (6 items), a 4-step engagement model, a Tools & Technologies chip strip, a Related practice areas cross-link grid, and CTA — all reusing the shared header, footer, and AI chat widget.
 - **Nav wired for consistency:** each services.html core-practice card now has a "Learn more" link to its detail page; footer "Verticals" links across index.html, about.html, and services.html now point to the four detail pages instead of the generic services.html.
