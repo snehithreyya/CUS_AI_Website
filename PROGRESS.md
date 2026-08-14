@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 6 — 2026-08-14
+- **Careers page built (careers.html):** page hero with Home / Careers breadcrumb + 3 stat highlights (6+ talent tracks, US-based, 1:1 mentorship), a "Why CUS" culture grid (6 cards: meaningful work, mentorship, growth paths, flexibility, cross-industry exposure, always learning), a "Talent areas we're hiring for" grid (6 tracks: Software Development, Cloud & DevOps, Data & AI, Technology Consulting, Engineering & Operations, QA & Cybersecurity), a 4-step "How We Hire" process (Apply → Intro call → Skills interview → Offer & onboarding), an 8-item Benefits & Perks grid, a Students & New Graduates section (placeholder for a future students.html hub), and an Apply CTA with a prefilled mailto résumé link — all reusing the shared header, footer, and AI chat widget.
+- **Nav wired for consistency:** added a "Careers" link to the desktop nav and mobile menu across all 8 existing pages (index, about, services, industries, and the 4 service detail pages); repointed the header "Explore Careers" button, the mobile "Careers" button, and the footer "Careers" link from index.html#contact to careers.html.
+- Verified: node --check on js/main.js; HTML well-formedness + local link/asset existence checks passed on all 9 pages.
+
+### Next up
+- students.html — dedicated students & new-grad hub (internships, early-career pathways) linked from the careers page.
+- contact.html with a validated lead form (mailto or form-service placeholder).
+- SEO polish: sitemap.xml, robots.txt, Open Graph across all pages; WCAG 2.1 AA pass.
+- Expand the assistant KB in js/main.js with lead-capture + booking intents; add RAG backend hook.
+
 ## Day 5 — 2026-08-12
 - **Industries page built (industries.html):** page hero with Home / Industries breadcrumb, intro + 3 stat highlights (11+ industries, US-based, 24/7 assistant), a "Sectors we empower" grid of 11 industries (Information Technology, Healthcare, Finance & Banking, Insurance, Manufacturing, Retail, Supply Chain & Logistics, Telecommunications, Engineering Services, Pharmaceuticals, Biotechnology) each with an icon + description, plus a "Don't see your sector?" cross-industry card, a "How We Serve" trio (compliance-aware, domain-fluent teams, outcome-focused), and CTA — all reusing the shared header, footer, and AI chat widget.
 - **Nav wired for consistency:** the "Industries" link in the desktop nav and mobile menu across all pages (index, about, services, and the 4 service detail pages) now points to industries.html instead of the index.html#industries on-page anchor. Footer "Company" column now includes an Industries link.
