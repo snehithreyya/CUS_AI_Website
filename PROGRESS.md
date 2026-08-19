@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 7 — 2026-08-19
+- **Students & New Graduates hub built (students.html):** page hero with Home / Careers / Students breadcrumb + 3 stat highlights (1:1 mentor from day one, live client projects, US-based), an "Early-career pathways" trio (Internships, New-grad rotation, Apprentice-style upskilling), a "What you'll gain" 6-card grid (mentored from day one, real client work, transferable skills, structured onboarding, cross-industry exposure, a path forward), a "Tracks open to students & new grads" 6-card grid (Software Development, Cloud & DevOps, Data & AI, Technology Consulting, QA & Cybersecurity, Engineering & Operations) linking back to all careers tracks, a 4-step "How to apply" process, a 4-item student FAQ, and an Apply CTA with a prefilled student mailto — all reusing the shared header, footer, and AI chat widget.
+- **Nav wired for consistency:** added a "Students & New Grads" link to the footer Company column across all 9 existing pages (index, about, services, industries, careers, and the 4 service detail pages). Repointed the careers.html Students & New Graduates section from its "hub is on the way" placeholder to the live students.html hub (primary CTA + inline link).
+- Verified: node --check on js/main.js; HTML well-formedness + local link/asset existence checks passed on all 10 pages.
+
+### Next up
+- contact.html with a validated lead form (mailto or form-service placeholder).
+- Consultation booking flow (form/calendar placeholder).
+- SEO polish: sitemap.xml, robots.txt, Open Graph across all pages; WCAG 2.1 AA pass.
+- Expand the assistant KB in js/main.js with lead-capture + booking intents; add RAG backend hook.
+
 ## Day 6 — 2026-08-14
 - **Careers page built (careers.html):** page hero with Home / Careers breadcrumb + 3 stat highlights (6+ talent tracks, US-based, 1:1 mentorship), a "Why CUS" culture grid (6 cards: meaningful work, mentorship, growth paths, flexibility, cross-industry exposure, always learning), a "Talent areas we're hiring for" grid (6 tracks: Software Development, Cloud & DevOps, Data & AI, Technology Consulting, Engineering & Operations, QA & Cybersecurity), a 4-step "How We Hire" process (Apply → Intro call → Skills interview → Offer & onboarding), an 8-item Benefits & Perks grid, a Students & New Graduates section (placeholder for a future students.html hub), and an Apply CTA with a prefilled mailto résumé link — all reusing the shared header, footer, and AI chat widget.
 - **Nav wired for consistency:** added a "Careers" link to the desktop nav and mobile menu across all 8 existing pages (index, about, services, industries, and the 4 service detail pages); repointed the header "Explore Careers" button, the mobile "Careers" button, and the footer "Careers" link from index.html#contact to careers.html.
