@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 8 — 2026-08-24
+- **Contact page built (contact.html):** page hero with Home / Contact breadcrumb + 3 stat highlights (<1 business-day reply, US-based, 24/7 assistant); a two-column layout with a validated lead-capture form (full name, work email, company, phone, a topic <select> — project/consulting, hire talent/staffing, book a consultation, careers, partnership, general — and message) alongside a "Reach us directly" card (email, phone tel: link, location, LinkedIn/Instagram) and a "Prefer to talk it through?" consultation nudge; plus a 4-step "What happens next" flow (review → intro call → tailored plan → get moving) — all reusing the shared header, footer, and AI chat widget.
+- **Static-friendly form handling:** vanilla-JS inline validation (required-field, email + phone regex, min-length message) with inline per-field error messages, `.is-invalid` styling, focus management, and an aria-live status line; on valid submit it composes a prefilled `mailto:info@cussolution.com` (no data stored on the site — noted in the UI). Added reusable `.form-input`, `select.form-input`, `.form-error`, and `.is-invalid` styles to css/styles.css using existing brand tokens.
+- **Nav wired for consistency:** repointed every "Contact", "Hire Talent", and footer "Inquiries" link from the old `index.html#contact` anchor to the new contact.html across all 11 pages (desktop nav, mobile menu, hero CTAs, footer); fixed stale footer "Students" links to point to students.html; normalized the index.html footer Company column (About Us, Industries, Careers, Students & New Grads, Contact) and removed a duplicate entry.
+- Verified: node --check on js/main.js and on the extracted inline contact-form script; HTML well-formedness + local link/asset existence checks passed on all 11 pages.
+
+### Next up
+- Consultation booking flow (form/calendar placeholder — e.g. Calendly embed or a scheduling-service hook).
+- SEO polish: sitemap.xml, robots.txt, Open Graph across all pages; WCAG 2.1 AA pass.
+- Expand the assistant KB in js/main.js with lead-capture + booking intents; add RAG backend hook.
+
 ## Day 7 — 2026-08-19
 - **Students & New Graduates hub built (students.html):** page hero with Home / Careers / Students breadcrumb + 3 stat highlights (1:1 mentor from day one, live client projects, US-based), an "Early-career pathways" trio (Internships, New-grad rotation, Apprentice-style upskilling), a "What you'll gain" 6-card grid (mentored from day one, real client work, transferable skills, structured onboarding, cross-industry exposure, a path forward), a "Tracks open to students & new grads" 6-card grid (Software Development, Cloud & DevOps, Data & AI, Technology Consulting, QA & Cybersecurity, Engineering & Operations) linking back to all careers tracks, a 4-step "How to apply" process, a 4-item student FAQ, and an Apply CTA with a prefilled student mailto — all reusing the shared header, footer, and AI chat widget.
 - **Nav wired for consistency:** added a "Students & New Grads" link to the footer Company column across all 9 existing pages (index, about, services, industries, careers, and the 4 service detail pages). Repointed the careers.html Students & New Graduates section from its "hub is on the way" placeholder to the live students.html hub (primary CTA + inline link).
