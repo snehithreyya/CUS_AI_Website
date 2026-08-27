@@ -7,7 +7,7 @@ iterated on daily.
 
 ## Live site
 Once GitHub Pages is enabled, the site publishes at:
-`https://snehith-reyya-cus.github.io/CUS_AI_Website/`
+`https://snehithreyya.github.io/CUS_AI_Website/`
 
 ## Structure
 ```

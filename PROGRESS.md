@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 10 — 2026-08-27
+- **SEO & social-sharing polish across the whole site:** added a consistent metadata block to the `<head>` of all 12 pages — `og:site_name`, per-page `og:url`, `og:image` (with width/height/alt), Twitter `summary_large_image` card tags (title/description/image), a self-referencing `<link rel="canonical">`, `robots` index/follow, and a `theme-color` — layered on top of the existing title/description/og:title/og:description without disturbing them.
+- **Open Graph share image:** generated a branded 1200×630 `assets/og-image.png` (navy gradient, CUS Solution wordmark, headline, accent) and wired it as the og/twitter image on every page so link previews render properly on LinkedIn, Slack, iMessage, X, etc.
+- **Structured data:** added an Organization JSON-LD block to index.html (name, url, logo, description, email, phone, LinkedIn/Instagram sameAs, and a contactPoint) for richer search results.
+- **Crawl files:** added `sitemap.xml` (all 12 pages, with lastmod/changefreq/priority) and `robots.txt` (allow-all + Sitemap reference). Fixed the stale live-site URL in README to the correct GitHub Pages base (`https://snehithreyya.github.io/CUS_AI_Website/`), matching the canonical/sitemap URLs.
+- Verified: node --check on js/main.js; sitemap.xml and the JSON-LD both parse; confirmed all 12 pages carry canonical + og:image + twitter:card; HTML well-formedness passed on every page.
+
+### Next up
+- WCAG 2.1 AA accessibility pass (color contrast, focus states, aria labels, landmark/heading order, alt text).
+- Performance polish (defer/async scripts, image sizing, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Expand the assistant KB in js/main.js with lead-capture + booking intents (route users to booking.html); add RAG backend hook.
+
 ## Day 9 — 2026-08-25
 - **Consultation booking flow built (booking.html):** page hero with Home / Contact / Book a Consultation breadcrumb + 3 stat highlights (30-min focused call, <1 business day to confirm, $0 / no obligation); a two-column "Pick a time" layout pairing a scheduler placeholder with a validated "Request your slot" form. The scheduler is a styled drop-in target (`#scheduler-embed` with `data-embed`/`data-embed-url` hooks) ready for a future Calendly/Cal.com embed, with a clear "coming soon" state and a jump link to the request form. Four meeting-type cards (Intro call, Project scoping, Staffing consult, Technical deep-dive) and a "What to expect" 4-step section — all reusing the shared header, footer, and AI chat widget.
 - **Booking request form:** vanilla-JS inline validation (required-field, email + phone regex, consultation type, preferred date with a past-date guard via `min`, time window, and time zone) with per-field error messages, `.is-invalid` styling, focus management, and an aria-live status line; on valid submit it composes a prefilled `mailto:info@cussolution.com` capturing name, email, company, phone, consultation type, preferred date/window/timezone, and notes (no data stored on the site — noted in the UI). Added a "Book a Call" primary CTA to the header (desktop + mobile).

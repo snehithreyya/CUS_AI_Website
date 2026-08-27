@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://snehithreyya.github.io/CUS_AI_Website/sitemap.xml
