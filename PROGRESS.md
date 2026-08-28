@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 11 — 2026-08-28
+- **AI assistant upgraded with booking + lead-capture intents and a RAG backend hook (js/main.js):** expanded the grounded `CUS_KB` from 11 to 20 intents, adding dedicated entries for each core practice (technology-consulting, software-development, cloud-solutions, engineering-services), plus booking, lead/quote, pricing, engagement process, location, and students — and tightened the company-overview intent (dropped the over-greedy `what`/`do` keys that were hijacking unrelated queries like "random" and "industries").
+- **Actionable in-chat CTAs:** answers can now render clickable action chips that route the user to the right page — every relevant reply surfaces "Book a consultation" (booking.html), "Contact the team" (contact.html), or the matching service/careers/students/industries page. Added `.chat-action` / `.chat-actions` styles to css/styles.css using the existing brand tokens, with a `.secondary` variant and a focus-visible outline for keyboard users.
+- **RAG backend hook:** added `ASSISTANT_CONFIG.ragEndpoint` (null by default) and an async `queryRAG()` that POSTs the query plus a short rolling history with an AbortController timeout and gracefully falls back to the local KB on any error. The chat now resolves answers through an async `respond()` (RAG first, KB fallback) while preserving the typing-indicator UX.
+- Verified: `node --check js/main.js`; CSS brace balance (69/69); all 12 pages include css/styles.css + js/main.js; every action-link target file exists; ran an intent-routing harness confirming booking/pricing/students/hiring/cloud/industries/company queries map to the right answers and unrelated queries fall through to the grounded fallback.
+
+### Next up
+- WCAG 2.1 AA accessibility pass (color contrast, focus states, aria labels, landmark/heading order, alt text).
+- Performance polish (defer/async scripts, image sizing, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+
 ## Day 10 — 2026-08-27
 - **SEO & social-sharing polish across the whole site:** added a consistent metadata block to the `<head>` of all 12 pages — `og:site_name`, per-page `og:url`, `og:image` (with width/height/alt), Twitter `summary_large_image` card tags (title/description/image), a self-referencing `<link rel="canonical">`, `robots` index/follow, and a `theme-color` — layered on top of the existing title/description/og:title/og:description without disturbing them.
 - **Open Graph share image:** generated a branded 1200×630 `assets/og-image.png` (navy gradient, CUS Solution wordmark, headline, accent) and wired it as the og/twitter image on every page so link previews render properly on LinkedIn, Slack, iMessage, X, etc.

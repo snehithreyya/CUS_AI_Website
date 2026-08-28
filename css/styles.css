@@ -157,6 +157,27 @@ details[open] .faq-icon { transform: rotate(45deg); }
 .chat-send { background: var(--blue-600); color: #fff; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: grid; place-items: center; }
 .typing span { display: inline-block; width: 6px; height: 6px; margin: 0 1px; background: var(--slate-400); border-radius: 50%; animation: blink 1.2s infinite; }
 .typing span:nth-child(2){ animation-delay:.2s } .typing span:nth-child(3){ animation-delay:.4s }
+
+/* Assistant action links (booking / contact CTAs inside chat) */
+.msg .chat-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 9px; }
+.chat-action {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .8rem; font-weight: 600; line-height: 1;
+  padding: .48rem .72rem; border-radius: 999px;
+  text-decoration: none; cursor: pointer;
+  background: linear-gradient(120deg, var(--blue-500), var(--blue-600));
+  color: #fff; border: none;
+  box-shadow: 0 6px 18px -8px rgba(47,107,255,.75);
+  transition: box-shadow .15s ease, transform .05s ease;
+}
+.chat-action:hover { box-shadow: 0 9px 22px -8px rgba(47,107,255,.9); }
+.chat-action:active { transform: translateY(1px); }
+.chat-action.secondary {
+  background: #eef3ff; color: var(--blue-600);
+  border: 1px solid #cfdcff; box-shadow: none;
+}
+.chat-action.secondary:hover { background: #dfe8ff; }
+.chat-action:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
 @keyframes blink { 0%,80%,100%{opacity:.25} 40%{opacity:1} }
 
 /* ---------- Contact form controls ---------- */
