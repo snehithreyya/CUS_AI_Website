@@ -191,3 +191,27 @@ details[open] .faq-icon { transform: rotate(45deg); }
 .form-input.is-invalid { border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220,38,38,.12); }
 select.form-input { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .9rem center; padding-right: 2.4rem; }
 .form-error { min-height: 1rem; margin-top: .3rem; font-size: .78rem; color: #dc2626; }
+
+/* ---------- Accessibility: skip link + global keyboard focus ---------- */
+.skip-link {
+  position: absolute; left: 0; top: 0; z-index: 100;
+  transform: translateY(-120%);
+  background: var(--blue-500); color: #fff;
+  padding: .7rem 1.1rem; border-radius: 0 0 10px 0;
+  font-weight: 600; font-size: .95rem; text-decoration: none;
+  transition: transform .15s ease;
+}
+.skip-link:focus { transform: translateY(0); outline: 3px solid #fff; outline-offset: 2px; }
+
+/* Visible focus ring for keyboard users across interactive elements */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--cyan-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+main:focus { outline: none; }

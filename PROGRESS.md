@@ -2,6 +2,21 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 12 — 2026-09-01
+- **WCAG 2.1 AA accessibility pass across all 12 pages (structure, landmarks, keyboard focus):**
+  - **Skip link:** added a "Skip to main content" link as the first focusable element on every page; it is visually hidden until focused (new `.skip-link` styles in css/styles.css) and jumps to the main region — a WCAG 2.4.1 (Bypass Blocks) fix for keyboard and screen-reader users.
+  - **Main landmark:** wrapped each page's content between the shared header and footer in a single `<main id="main-content" tabindex="-1">`, giving every page the header/main/footer landmark structure (WCAG 1.3.1 Info & Relationships) and a valid skip-link target.
+  - **Decorative icons hidden from AT:** marked all inline decorative `<svg>` icons `aria-hidden="true" focusable="false"` (170+ across the site) so screen readers no longer announce empty graphics and the icons drop out of the tab order.
+  - **Mobile menu button:** added `aria-controls="mobile-menu"` and a clearer `aria-label="Open menu"` to the nav toggle (its `aria-expanded` was already wired in js/main.js), completing the disclosure pattern (WCAG 4.1.2 Name, Role, Value).
+  - **Visible keyboard focus:** added a global `:focus-visible` ring (cyan outline + offset) for links, buttons, inputs, selects, textareas, and `[tabindex]` elements so keyboard navigation is always visible (WCAG 2.4.7 Focus Visible), without affecting mouse users.
+- Verified: `node --check js/main.js`; CSS brace balance (73/73); HTML well-formedness parsed on all 12 pages; each page carries exactly one `<main>` open/close, the skip link, css/styles.css + js/main.js; all local hrefs/srcs resolve; zero `<svg>` remain without `aria-hidden`.
+
+### Next up
+- Color-contrast audit and fixes (footer/muted slate text on navy, chip and secondary-button text) to meet the 4.5:1 AA ratio.
+- Performance polish (defer/async scripts, image sizing, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+
 ## Day 11 — 2026-08-28
 - **AI assistant upgraded with booking + lead-capture intents and a RAG backend hook (js/main.js):** expanded the grounded `CUS_KB` from 11 to 20 intents, adding dedicated entries for each core practice (technology-consulting, software-development, cloud-solutions, engineering-services), plus booking, lead/quote, pricing, engagement process, location, and students — and tightened the company-overview intent (dropped the over-greedy `what`/`do` keys that were hijacking unrelated queries like "random" and "industries").
 - **Actionable in-chat CTAs:** answers can now render clickable action chips that route the user to the right page — every relevant reply surfaces "Book a consultation" (booking.html), "Contact the team" (contact.html), or the matching service/careers/students/industries page. Added `.chat-action` / `.chat-actions` styles to css/styles.css using the existing brand tokens, with a `.secondary` variant and a focus-visible outline for keyboard users.

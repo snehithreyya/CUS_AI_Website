@@ -43,12 +43,13 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- ============ HEADER ============ -->
   <header class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur border-b border-white/10">
     <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 text-white font-display font-extrabold text-lg">
         <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
         </span>
         CUS<span class="text-brand-400">Solution</span>
       </a>
@@ -69,8 +70,8 @@
         <a href="contact.html" class="btn btn-primary text-sm">Hire Talent</a>
       </div>
 
-      <button id="nav-toggle" aria-label="Menu" aria-expanded="false" class="lg:hidden text-white p-2">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button id="nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden text-white p-2">
+        <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
 
@@ -89,6 +90,8 @@
       </div>
     </div>
   </header>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- ============ PAGE HERO ============ -->
   <section class="hero-surface relative overflow-hidden">
@@ -168,7 +171,7 @@
           </div>
           <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center gap-4">
             <button type="submit" class="btn btn-primary">Send message
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+              <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
             </button>
             <p id="form-status" class="text-sm text-slate-500" role="status" aria-live="polite"></p>
           </div>
@@ -183,19 +186,19 @@
           <ul class="space-y-5 text-sm">
             <li class="flex items-start gap-4">
               <span class="inline-grid place-items-center w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 6l8 6 8-6"/></svg>
+                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 6l8 6 8-6"/></svg>
               </span>
               <span><span class="block text-slate-400">Email</span><a href="mailto:info@cussolution.com" class="text-navy-900 font-medium hover:text-brand-600">info@cussolution.com</a></span>
             </li>
             <li class="flex items-start gap-4">
               <span class="inline-grid place-items-center w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
               </span>
               <span><span class="block text-slate-400">Phone</span><a href="tel:+13073135867" class="text-navy-900 font-medium hover:text-brand-600">+1 (307) 313-5867</a></span>
             </li>
             <li class="flex items-start gap-4">
               <span class="inline-grid place-items-center w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 shrink-0">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.4-9.3-8.6A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6.4C19 16.6 12 21 12 21z"/></svg>
+                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.4-9.3-8.6A5.4 5.4 0 0 1 12 6a5.4 5.4 0 0 1 9.3 6.4C19 16.6 12 21 12 21z"/></svg>
               </span>
               <span><span class="block text-slate-400">Location</span><span class="text-navy-900 font-medium">United States · remote-friendly</span></span>
             </li>
@@ -210,7 +213,7 @@
           <h3 class="font-display text-lg font-bold text-navy-900 mb-3">Prefer to talk it through?</h3>
           <p class="text-sm text-slate-500 leading-relaxed">Book a short call and we'll come prepared to understand your goals, scope, and timeline before recommending an approach — pick a time that works for you.</p>
           <a href="booking.html" class="inline-flex items-center gap-2 mt-4 text-brand-600 font-medium text-sm hover:underline">Book a consultation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
       </aside>
@@ -251,12 +254,14 @@
   </section>
 
   <!-- ============ FOOTER ============ -->
+  </main>
+
   <footer class="bg-navy-900 text-slate-400 pt-16 pb-8 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
       <div>
         <div class="flex items-center gap-2 text-white font-display font-extrabold text-lg mb-4">
           <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+            <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
           </span>CUS Solution
         </div>
         <p class="text-sm">Technology consulting, staffing, and in-house innovation for enterprise delivery.</p>
@@ -298,14 +303,14 @@
   <!-- ============ AI ASSISTANT WIDGET ============ -->
   <button id="chat-launcher" aria-label="Open AI assistant">
     <span class="dot"></span>
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </button>
 
   <div id="chat-panel" role="dialog" aria-label="CUS Solution AI assistant">
     <div class="chat-head flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-white/15">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
         </span>
         <div>
           <div class="font-semibold leading-tight">CUS Assistant</div>
@@ -324,7 +329,7 @@
     <div class="chat-input">
       <input id="chat-text" type="text" placeholder="Ask about services, careers, hiring…" autocomplete="off" />
       <button id="chat-send" class="chat-send" aria-label="Send">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
       </button>
     </div>
   </div>

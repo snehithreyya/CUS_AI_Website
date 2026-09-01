@@ -43,12 +43,13 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- ============ HEADER ============ -->
   <header class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur border-b border-white/10">
     <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 text-white font-display font-extrabold text-lg">
         <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
         </span>
         CUS<span class="text-brand-400">Solution</span>
       </a>
@@ -69,8 +70,8 @@
         <a href="booking.html" class="btn btn-primary text-sm">Book a Call</a>
       </div>
 
-      <button id="nav-toggle" aria-label="Menu" aria-expanded="false" class="lg:hidden text-white p-2">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button id="nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden text-white p-2">
+        <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
 
@@ -89,6 +90,8 @@
       </div>
     </div>
   </header>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- ============ PAGE HERO ============ -->
   <section class="hero-surface relative overflow-hidden">
@@ -135,12 +138,12 @@
              data-embed-url=""
              class="mt-8 rounded-2xl border-2 border-dashed border-slate-200 bg-slate-50/60 p-10 text-center">
           <span class="inline-grid place-items-center w-14 h-14 rounded-2xl bg-brand-500/10 text-brand-600 mx-auto">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+            <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
           </span>
           <h3 class="mt-4 font-display text-lg font-bold text-navy-900">Live booking calendar coming soon</h3>
           <p class="mt-2 text-sm text-slate-500 max-w-md mx-auto">We're finishing our online scheduler integration. Use the request form for now — it takes under a minute and we'll lock in your slot right away.</p>
           <a href="#request" class="btn btn-primary text-sm mt-6 inline-flex">Request my slot
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
 
@@ -237,7 +240,7 @@
             </div>
             <div class="flex flex-col gap-3">
               <button type="submit" class="btn btn-primary w-full justify-center">Request consultation
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+                <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
               </button>
               <p id="form-status" class="text-sm text-slate-500" role="status" aria-live="polite"></p>
             </div>
@@ -252,7 +255,7 @@
             <li><a href="tel:+13073135867" class="text-navy-900 font-medium hover:text-brand-600">+1 (307) 313-5867</a></li>
           </ul>
           <a href="contact.html" class="inline-flex items-center gap-2 mt-4 text-brand-600 font-medium text-sm hover:underline">Send a general message instead
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
       </aside>
@@ -293,12 +296,14 @@
   </section>
 
   <!-- ============ FOOTER ============ -->
+  </main>
+
   <footer class="bg-navy-900 text-slate-400 pt-16 pb-8 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
       <div>
         <div class="flex items-center gap-2 text-white font-display font-extrabold text-lg mb-4">
           <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+            <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
           </span>CUS Solution
         </div>
         <p class="text-sm">Technology consulting, staffing, and in-house innovation for enterprise delivery.</p>
@@ -340,14 +345,14 @@
   <!-- ============ AI ASSISTANT WIDGET ============ -->
   <button id="chat-launcher" aria-label="Open AI assistant">
     <span class="dot"></span>
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </button>
 
   <div id="chat-panel" role="dialog" aria-label="CUS Solution AI assistant">
     <div class="chat-head flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-white/15">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
         </span>
         <div>
           <div class="font-semibold leading-tight">CUS Assistant</div>
@@ -366,7 +371,7 @@
     <div class="chat-input">
       <input id="chat-text" type="text" placeholder="Ask about services, careers, hiring…" autocomplete="off" />
       <button id="chat-send" class="chat-send" aria-label="Send">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
       </button>
     </div>
   </div>

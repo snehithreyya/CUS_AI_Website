@@ -43,12 +43,13 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- ============ HEADER ============ -->
   <header class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur border-b border-white/10">
     <div class="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2 text-white font-display font-extrabold text-lg">
         <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
         </span>
         CUS<span class="text-brand-400">Solution</span>
       </a>
@@ -69,8 +70,8 @@
         <a href="contact.html" class="btn btn-primary text-sm">Hire Talent</a>
       </div>
 
-      <button id="nav-toggle" aria-label="Menu" aria-expanded="false" class="lg:hidden text-white p-2">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button id="nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden text-white p-2">
+        <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
 
@@ -89,6 +90,8 @@
       </div>
     </div>
   </header>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- ============ PAGE HERO ============ -->
   <section class="hero-surface relative overflow-hidden">
@@ -112,7 +115,7 @@
         </p>
         <div class="mt-9 flex flex-wrap gap-4">
           <a href="#pathways" class="btn btn-primary">Explore pathways
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#apply" class="btn btn-ghost">Apply as a student</a>
         </div>
@@ -136,21 +139,21 @@
       <div class="mt-14 grid md:grid-cols-3 gap-6">
         <div class="card p-8 reveal">
           <span class="inline-grid place-items-center w-11 h-11 rounded-lg bg-brand-500/10 text-brand-600 mb-5">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1 2.5 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
+            <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12v5c0 1 2.5 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
           </span>
           <h3 class="font-display text-xl font-bold text-navy-900">Internships</h3>
           <p class="mt-3 text-slate-500 text-sm leading-relaxed">Semester and summer internships where you join a delivery team, own scoped tasks, and ship work that matters — with weekly mentor check-ins and a clear learning plan.</p>
         </div>
         <div class="card p-8 reveal">
           <span class="inline-grid place-items-center w-11 h-11 rounded-lg bg-brand-500/10 text-brand-600 mb-5">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 7l10 5 10-5"/><circle cx="12" cy="12" r="9"/></svg>
+            <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 7l10 5 10-5"/><circle cx="12" cy="12" r="9"/></svg>
           </span>
           <h3 class="font-display text-xl font-bold text-navy-900">New-grad rotation</h3>
           <p class="mt-3 text-slate-500 text-sm leading-relaxed">A guided first year for recent graduates — rotate across projects and practice areas to find your strengths before settling into a track, with mentorship the whole way.</p>
         </div>
         <div class="card p-8 reveal">
           <span class="inline-grid place-items-center w-11 h-11 rounded-lg bg-brand-500/10 text-brand-600 mb-5">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20l9-5-9-5-9 5 9 5zM12 12V4"/><path d="M5 13v4c0 1 3 3 7 3s7-2 7-3v-4"/></svg>
+            <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20l9-5-9-5-9 5 9 5zM12 12V4"/><path d="M5 13v4c0 1 3 3 7 3s7-2 7-3v-4"/></svg>
           </span>
           <h3 class="font-display text-xl font-bold text-navy-900">Apprentice-style upskilling</h3>
           <p class="mt-3 text-slate-500 text-sm leading-relaxed">Learning-by-doing for career changers and bootcamp grads — pair with seniors on real engagements while you close skill gaps with a structured, supported ramp.</p>
@@ -232,7 +235,7 @@
       </div>
       <div class="mt-10 text-center reveal">
         <a href="careers.html#openings" class="btn btn-ghost">See all talent tracks
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
     </div>
@@ -314,12 +317,14 @@
   </section>
 
   <!-- ============ FOOTER ============ -->
+  </main>
+
   <footer class="bg-navy-900 text-slate-400 pt-16 pb-8 border-t border-white/10">
     <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-4 gap-10">
       <div>
         <div class="flex items-center gap-2 text-white font-display font-extrabold text-lg mb-4">
           <span class="inline-grid place-items-center w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
+            <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18"/></svg>
           </span>CUS Solution
         </div>
         <p class="text-sm">Technology consulting, staffing, and in-house innovation for enterprise delivery.</p>
@@ -361,14 +366,14 @@
   <!-- ============ AI ASSISTANT WIDGET ============ -->
   <button id="chat-launcher" aria-label="Open AI assistant">
     <span class="dot"></span>
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   </button>
 
   <div id="chat-panel" role="dialog" aria-label="CUS Solution AI assistant">
     <div class="chat-head flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-white/15">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 8V4H8M4 8h16v12H4zM2 14h2M20 14h2M9 13v2M15 13v2"/></svg>
         </span>
         <div>
           <div class="font-semibold leading-tight">CUS Assistant</div>
@@ -387,7 +392,7 @@
     <div class="chat-input">
       <input id="chat-text" type="text" placeholder="Ask about services, careers, hiring…" autocomplete="off" />
       <button id="chat-send" class="chat-send" aria-label="Send">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
       </button>
     </div>
   </div>
