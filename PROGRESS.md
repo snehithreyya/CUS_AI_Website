@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 13 — 2026-09-02
+- **Color-contrast fixes for WCAG 2.1 AA (1.4.3 Contrast Minimum):** ran a DOM-aware contrast audit across all 12 pages (computing each muted-text element's contrast against its actual, inherited background) and fixed every genuine sub-4.5:1 body-text failure:
+  - **Breadcrumb "/" separators (17 across 11 pages):** the `text-slate-600` slash separators sat on the dark page-hero (~1.65:1). Bumped to `text-slate-300` (8+:1) so the breadcrumb trail is legible.
+  - **Muted labels/disclaimers on white (6 instances):** the contact page field labels (Email/Phone/Location) and its mailto disclaimer, the booking-form disclaimer, and the careers→students note used `text-slate-400` on white (2.56:1). Darkened to `text-slate-600` (7.58:1).
+- Confirmed the audit's remaining flags are false positives — the nav (`text-slate-200` on the `bg-navy-900/90` sticky header) and the chat-widget header (`text-slate-300` on its dark CSS gradient) are both light-on-dark and pass; the auditor simply can't see CSS-defined backgrounds.
+- Verified: DOM-aware contrast auditor re-run (zero real light-bg or dark-hero failures remain); HTML well-formedness parsed on all 12 pages; each page still carries exactly one `<main id="main-content">` and the skip link; `node --check js/main.js` passes.
+
+### Next up
+- Performance polish (defer/async scripts, image sizing, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section and a blog/insights scaffold for content depth.
+
 ## Day 12 — 2026-09-01
 - **WCAG 2.1 AA accessibility pass across all 12 pages (structure, landmarks, keyboard focus):**
   - **Skip link:** added a "Skip to main content" link as the first focusable element on every page; it is visually hidden until focused (new `.skip-link` styles in css/styles.css) and jumps to the main region — a WCAG 2.4.1 (Bypass Blocks) fix for keyboard and screen-reader users.
