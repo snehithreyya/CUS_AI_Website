@@ -2,6 +2,23 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 14 — 2026-09-03
+- **Built the Insights blog / content hub (`insights.html`) plus three full articles** — a new content-depth pillar for the site:
+  - **Insights hub:** page hero + a featured-article spotlight (dark card), a responsive article grid (3 published + 3 "Coming soon" cards), a "browse by topic" chip row linking to the relevant service/careers/industries pages, and an email-subscribe CTA with inline JS validation that composes a `mailto:info@cussolution.com` subscribe request (no data stored on the site — noted in the UI).
+  - **Three published articles**, each reusing the shared header/footer/AI-chat chrome with breadcrumb, category chip, author/date/read-time meta, a key-takeaways card, and a related-service + booking CTA: "Cutting Cloud Costs Without Slowing Teams Down" (Cloud/FinOps), "Contract, Contract-to-Hire, or Direct Hire: Choosing the Right Model" (Staffing), and "From Pilot to Production: A Realistic Path to Enterprise AI" (AI & Data).
+  - **New `.article-prose` typography** added to css/styles.css (readable measure, paragraph rhythm, lead paragraph emphasis, list + link styling) — reuses the existing brand color tokens.
+- **Site-wide navigation:** added an "Insights" link to the desktop nav, mobile menu, and footer Company column on all 12 existing pages (careers.html's active-state nav handled separately), and to the four new pages.
+- **AI assistant:** added an `insights`/`blog`/`article` intent to the grounded `CUS_KB` in js/main.js and an `ACTION.insights` CTA so the chat routes readers to the new hub.
+- **SEO:** added all four new URLs to sitemap.xml (16 total) with lastmod 2026-09-03; each new page carries full title/description/canonical/OG/Twitter meta.
+- Verified: HTML well-formedness parsed on all 16 pages; each page has exactly one `<main>`, the skip link, styles.css + main.js, and zero `<svg>` without `aria-hidden`; all local hrefs/srcs resolve (no broken links); `node --check js/main.js` passes; CSS brace balance 80/80; sitemap.xml parses; assistant insights intent + ACTION confirmed present.
+
+### Next up
+- Add 2–3 more Insights articles (Engineering/SRE, legacy modernization, new-grad portfolio) and convert the "Coming soon" cards.
+- Performance polish (defer/async scripts, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth.
+
 ## Day 13 — 2026-09-02
 - **Color-contrast fixes for WCAG 2.1 AA (1.4.3 Contrast Minimum):** ran a DOM-aware contrast audit across all 12 pages (computing each muted-text element's contrast against its actual, inherited background) and fixed every genuine sub-4.5:1 body-text failure:
   - **Breadcrumb "/" separators (17 across 11 pages):** the `text-slate-600` slash separators sat on the dark page-hero (~1.65:1). Bumped to `text-slate-300` (8+:1) so the breadcrumb trail is legible.

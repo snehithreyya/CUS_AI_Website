@@ -215,3 +215,12 @@ textarea:focus-visible {
   border-radius: 4px;
 }
 main:focus { outline: none; }
+
+/* Article / blog prose (Insights) */
+.article-prose { color: #334155; font-size: 1.075rem; line-height: 1.8; }
+.article-prose > p { margin: 0 0 1.25rem; }
+.article-prose > p:first-child { font-size: 1.2rem; color: #1e293b; }
+.article-prose h2 { scroll-margin-top: 5rem; }
+.article-prose ul { margin: 0 0 1.25rem; }
+.article-prose a { color: var(--blue-600); text-decoration: underline; }
+.article-prose a:hover { color: var(--blue-500); }

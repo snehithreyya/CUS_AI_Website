@@ -51,7 +51,8 @@ const ACTION = {
   careers:  { label: 'View careers',        href: 'careers.html' },
   students: { label: 'Students & new grads', href: 'students.html', style: 'secondary' },
   services: { label: 'Explore services',    href: 'services.html' },
-  industries:{ label: 'Industries we serve', href: 'industries.html', style: 'secondary' }
+  industries:{ label: 'Industries we serve', href: 'industries.html', style: 'secondary' },
+  insights: { label: 'Read our insights',   href: 'insights.html', style: 'secondary' }
 };
 
 // Grounded knowledge base. Each entry: keyword triggers, an answer,
@@ -156,6 +157,11 @@ const CUS_KB = [
     keys: ['innovation', 'in-house', 'product', 'saas', 'proprietary', 'platform'],
     a: "Beyond client work, CUS Solution builds proprietary technology — enterprise web apps, cloud-native apps, SaaS platforms, AI-powered applications, automation tools, and internal management systems.",
     actions: [ACTION.services]
+  },
+  {
+    keys: ['insight', 'insights', 'blog', 'article', 'articles', 'read', 'resources', 'guide', 'guides', 'newsletter', 'post', 'posts'],
+    a: "Our Insights blog shares practical guidance from our consultants and engineers — on cloud cost optimization, enterprise AI adoption, software modernization, and tech staffing. Browse the latest articles or subscribe to get new ones by email.",
+    actions: [ACTION.insights, ACTION.book]
   }
 ];
 
