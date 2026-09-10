@@ -2,6 +2,25 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 15 — 2026-09-10
+- **Expanded the grounded AI assistant knowledge base (`js/main.js`)** with seven new intents so the chat handles common conversational and sales questions that previously fell through to the generic fallback — grew `CUS_KB` from 21 to 28 entries:
+  - **Greeting / "what can you do":** a friendly orientation reply that introduces the assistant and offers services/booking, so a bare "hello" or "how can you help" now lands well.
+  - **Thanks / closing:** a warm acknowledgement with the direct contact + booking CTAs for follow-through.
+  - **Timeline / turnaround / availability:** answers "how long", "how soon can you start", "typical timeline" with a realistic, scope-dependent framing and a scoping-call CTA.
+  - **QA / testing:** routes quality-assurance and test-automation questions to the Software Development practice.
+  - **Partnerships / vendor / collaboration:** an open-to-partnership reply routing to Contact + booking.
+  - **Existing-client support / maintenance:** routes current clients to the right support channel (delivery contact / email / phone).
+  - **Social channels:** grounded LinkedIn (`/company/cus-solution`) + Instagram (`@cus_solution`) answer, cross-linking the Insights blog.
+- Each new intent reuses the existing `ACTION` CTA buttons (book / contact / services / insights / software-development) and distinctive, low-collision keyword triggers to avoid stealing matches from existing intents.
+- Verified: `node --check js/main.js` passes; ran an intent-routing harness over 24 queries confirming all seven new intents fire on their primary phrasings, existing intents (company/services/cloud/hiring/booking/pricing/careers/industries/insights) still route correctly, and only genuinely unrelated queries reach the grounded fallback. No HTML changed this run.
+
+### Next up
+- Add 2–3 more Insights articles (Engineering/SRE, legacy modernization, new-grad portfolio) and convert the "Coming soon" cards.
+- Performance polish (defer/async scripts, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only).
+
 ## Day 14 — 2026-09-03
 - **Built the Insights blog / content hub (`insights.html`) plus three full articles** — a new content-depth pillar for the site:
   - **Insights hub:** page hero + a featured-article spotlight (dark card), a responsive article grid (3 published + 3 "Coming soon" cards), a "browse by topic" chip row linking to the relevant service/careers/industries pages, and an email-subscribe CTA with inline JS validation that composes a `mailto:info@cussolution.com` subscribe request (no data stored on the site — noted in the UI).

@@ -59,6 +59,16 @@ const ACTION = {
 // and optional action buttons routing to the relevant page.
 const CUS_KB = [
   {
+    keys: ['hello', 'hey there', 'howdy', 'greetings', 'good morning', 'good afternoon', 'good evening', 'what can you do', 'what can you help', 'how can you help', 'get started', 'menu', 'options'],
+    a: "Hi! I'm the CUS Solution assistant. I can walk you through our services, industries, and careers, help you hire vetted talent, or set up a free consultation. What would you like to explore?",
+    actions: [ACTION.services, ACTION.book]
+  },
+  {
+    keys: ['thank', 'thanks', 'appreciate it', 'that helps', 'cheers', 'perfect thanks', 'great thanks'],
+    a: "Happy to help! If anything else comes up — services, hiring, or booking a call — just ask. You can also reach the team anytime at info@cussolution.com or +1 (307) 313-5867.",
+    actions: [ACTION.book, ACTION.contact]
+  },
+  {
     keys: ['cus solution', 'the company', 'about', 'who are', 'who is', 'overview', 'tell me about'],
     a: "CUS Solution is a US-based technology consulting and staffing company. We deliver software development, cloud solutions, engineering, data, and business consulting projects, build in-house technology products, and connect skilled professionals with industry opportunities.",
     actions: [ACTION.services]
@@ -162,7 +172,32 @@ const CUS_KB = [
     keys: ['insight', 'insights', 'blog', 'article', 'articles', 'read', 'resources', 'guide', 'guides', 'newsletter', 'post', 'posts'],
     a: "Our Insights blog shares practical guidance from our consultants and engineers — on cloud cost optimization, enterprise AI adoption, software modernization, and tech staffing. Browse the latest articles or subscribe to get new ones by email.",
     actions: [ACTION.insights, ACTION.book]
-  }
+  },
+  {
+    keys: ['how long', 'how soon', 'how fast', 'how quickly', 'timeline', 'turnaround', 'lead time', 'start date', 'availability', 'available', 'ramp up', 'when can you start', 'soon', 'timeframe'],
+    a: "Timelines depend on scope, but we move fast: most engagements begin with a short discovery within a business day of reaching out, and staffing requests can surface vetted candidates quickly. Book a scoping call and we'll give you a realistic timeline for your specific need:",
+    actions: [ACTION.book, ACTION.contact]
+  },
+  {
+    keys: ['qa', 'quality assurance', 'quality engineering', 'testing', 'test automation', 'automated testing', 'defect', 'bug'],
+    a: "Quality is built into our delivery: we provide QA automation, functional and regression testing, and test engineering as part of software builds — so releases ship with confidence. It's covered under Software Development.",
+    actions: [{ label: 'Software Development', href: 'software-development.html' }, ACTION.book]
+  },
+  {
+    keys: ['partner', 'partnership', 'vendor', 'collaborate', 'collaboration', 'alliance', 'subcontract', 'reseller', 'work together'],
+    a: "We're open to partnerships — subcontracting, delivery alliances, and vendor relationships that expand what we can build together. Tell us what you have in mind at info@cussolution.com, or book a short call to explore fit:",
+    actions: [ACTION.contact, ACTION.book]
+  },
+  {
+    keys: ['support', 'existing client', 'current client', 'already a client', 'maintenance', 'help desk', 'ongoing support', 'sla', 'existing project', 'existing engagement'],
+    a: "If you're already working with us and need support or want to extend an engagement, we're on it — reach your delivery contact directly, or email info@cussolution.com / call +1 (307) 313-5867 and we'll route you to the right team.",
+    actions: [ACTION.contact]
+  },
+  {
+    keys: ['linkedin', 'instagram', 'social media', 'social channels', 'follow you', 'follow us', 'socials'],
+    a: "You can follow CUS Solution on LinkedIn (linkedin.com/company/cus-solution) and Instagram (@cus_solution) for updates, insights, and openings. Our latest write-ups also live on the Insights blog.",
+    actions: [ACTION.insights, ACTION.contact]
+  },
 ];
 
 // ------------------------------------------------------------
