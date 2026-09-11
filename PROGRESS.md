@@ -2,6 +2,22 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 16 — 2026-09-11
+- **Published three new Insights articles**, clearing the entire "Coming soon" backlog on the blog hub (now 6 full published articles). Each reuses the shared header/footer/AI-chat chrome, breadcrumb, category chip, author/date/read-time meta, a "Key takeaways" card, and a related-service + booking CTA, and uses the `.article-prose` typography:
+  - **`insights-sre-reliability.html`** — "Designing for Reliability: SRE Practices That Scale With You" (Engineering): SLOs, error budgets, taming toil, and blameless postmortems. CTA routes to Engineering Services.
+  - **`insights-legacy-modernization.html`** — "Modernizing Legacy Systems Without a Big-Bang Rewrite" (Software): why rewrites fail, the strangler-fig pattern, finding seams with characterization tests, and sequencing by value. CTA routes to Software Development.
+  - **`insights-new-grad-portfolio.html`** — "Building a Standout Tech Portfolio as a New Graduate" (Careers): depth over breadth, solving a real problem, README-first, and shipping live. CTA routes to Students & New Grads.
+- **Converted the three "Coming soon" cards on `insights.html` into real linked article cards** (read-time + date + Read affordance), matching the existing published-card markup. Zero "Coming soon" placeholders remain on the hub.
+- **SEO:** added all three new URLs to `sitemap.xml` (19 total) with `lastmod` 2026-09-11 and bumped the insights hub's lastmod to match; each new page carries full title/description/canonical/OG/Twitter meta.
+- Verified: HTML well-formedness parsed on all four changed pages; each has exactly one `<main>`, the skip link, styles.css + main.js, no `<svg>` missing `aria-hidden`, and all local hrefs/srcs resolve (no broken links); `node --check js/main.js` passes; CSS brace balance 80/80; sitemap.xml parses as valid XML.
+
+### Next up
+- Performance polish (defer/async scripts, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only).
+- Add article-to-article "related reading" links across the Insights set for stronger internal linking.
+
 ## Day 15 — 2026-09-10
 - **Expanded the grounded AI assistant knowledge base (`js/main.js`)** with seven new intents so the chat handles common conversational and sales questions that previously fell through to the generic fallback — grew `CUS_KB` from 21 to 28 entries:
   - **Greeting / "what can you do":** a friendly orientation reply that introduces the assistant and offers services/booking, so a bare "hello" or "how can you help" now lands well.
