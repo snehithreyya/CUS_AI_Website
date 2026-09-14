@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 17 — 2026-09-14
+- **Added a "Related reading" section to all six Insights articles** for stronger internal linking and lower bounce. Each article now ends (just above its service CTA) with a two-card grid linking to two thematically related siblings, chosen for topical adjacency:
+  - AI adoption → Legacy modernization + Cloud cost; Cloud cost → SRE + AI adoption; Legacy modernization → SRE + AI adoption; New-grad portfolio → Tech staffing + SRE; SRE → Legacy modernization + Cloud cost; Tech staffing → New-grad portfolio + AI adoption.
+- Each related card reuses the existing `.card` class plus the article's real category chip (matching color token), the real H1 as the card title, a one-line blurb, a "Read article" arrow affordance, and an `sr-only` read-time. No card links to its own page.
+- Verified: HTML well-formedness parsed on all six changed pages (balanced tag stack, exactly one `<main>` each); each Related section has exactly two cards, no self-referencing link, every related `href` resolves to an existing file, and every inserted `<svg>` carries `aria-hidden`. No JS or CSS changed this run.
+
+### Next up
+- Performance polish (defer/async scripts, reduce layout shift, Lighthouse pass).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only).
+
 ## Day 16 — 2026-09-11
 - **Published three new Insights articles**, clearing the entire "Coming soon" backlog on the blog hub (now 6 full published articles). Each reuses the shared header/footer/AI-chat chrome, breadcrumb, category chip, author/date/read-time meta, a "Key takeaways" card, and a related-service + booking CTA, and uses the `.article-prose` typography:
   - **`insights-sre-reliability.html`** — "Designing for Reliability: SRE Practices That Scale With You" (Engineering): SLOs, error budgets, taming toil, and blameless postmortems. CTA routes to Engineering Services.
