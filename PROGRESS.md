@@ -2,6 +2,20 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 18 — 2026-09-16
+- **Render-blocking resources performance pass across all 19 pages** — targets Lighthouse's "Eliminate render-blocking resources" and connection-setup opportunities without touching the no-build-step Tailwind-CDN architecture:
+  - **Preconnect + dns-prefetch to `https://cdn.tailwindcss.com`** (the single largest render-blocking resource, previously un-hinted) so the TLS/connection handshake overlaps earlier work and the critical Tailwind script fetches sooner. Non-CORS preconnect to match the plain `<script src>` fetch.
+  - **Made the Google Fonts stylesheet non-blocking** via `media="print" onload="this.media='all'"` with a `<noscript>` fallback, removing it from the critical rendering path; `display=swap` was already set so text paints immediately in the fallback face and swaps with no invisible-text period. Existing `fonts.gstatic.com` preconnect keeps font-file fetches fast.
+  - **Added `defer` to `js/main.js`** on every page for correct non-parser-blocking semantics (the assistant still inits on `DOMContentLoaded`).
+- No image tags exist on the site (all inline SVG), so no CLS-from-images work was needed; `main.js` content was untouched (attribute-only change).
+- Verified: HTML well-formedness parsed on all 19 pages (balanced tags, exactly one `<main>` each, every SVG carries aria-hidden/role, all local hrefs/srcs resolve); `node --check js/main.js` passes.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 17 — 2026-09-14
 - **Added a "Related reading" section to all six Insights articles** for stronger internal linking and lower bounce. Each article now ends (just above its service CTA) with a two-card grid linking to two thematically related siblings, chosen for topical adjacency:
   - AI adoption → Legacy modernization + Cloud cost; Cloud cost → SRE + AI adoption; Legacy modernization → SRE + AI adoption; New-grad portfolio → Tech staffing + SRE; SRE → Legacy modernization + Cloud cost; Tech staffing → New-grad portfolio + AI adoption.
