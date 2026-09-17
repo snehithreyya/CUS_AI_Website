@@ -52,7 +52,8 @@ const ACTION = {
   students: { label: 'Students & new grads', href: 'students.html', style: 'secondary' },
   services: { label: 'Explore services',    href: 'services.html' },
   industries:{ label: 'Industries we serve', href: 'industries.html', style: 'secondary' },
-  insights: { label: 'Read our insights',   href: 'insights.html', style: 'secondary' }
+  insights: { label: 'Read our insights',   href: 'insights.html', style: 'secondary' },
+  faq:      { label: 'See the FAQ',         href: 'faq.html', style: 'secondary' }
 };
 
 // Grounded knowledge base. Each entry: keyword triggers, an answer,
@@ -197,6 +198,11 @@ const CUS_KB = [
     keys: ['linkedin', 'instagram', 'social media', 'social channels', 'follow you', 'follow us', 'socials'],
     a: "You can follow CUS Solution on LinkedIn (linkedin.com/company/cus-solution) and Instagram (@cus_solution) for updates, insights, and openings. Our latest write-ups also live on the Insights blog.",
     actions: [ACTION.insights, ACTION.contact]
+  },
+  {
+    keys: ['faq', 'faqs', 'frequently asked', 'common question', 'common questions', 'help center'],
+    a: "You can find quick answers on our FAQ page \u2014 what we do, how engagements and pricing work, how to hire talent, and how to start a career with us. If your question isn't there, just ask me or reach the team directly.",
+    actions: [ACTION.faq, ACTION.contact]
   },
 ];
 

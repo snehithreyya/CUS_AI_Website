@@ -2,6 +2,22 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 19 — 2026-09-17
+- **Built a dedicated FAQ page (`faq.html`) with FAQPage structured data** — a content + SEO improvement that consolidates the questions previously only in the homepage `#faq` section into a comprehensive, standalone, Google rich-result-eligible page.
+  - **16 categorized Q&As** across four groups — About CUS Solution, Services & Engagements, Hiring & Careers, and Getting Started — covering what we do, engagement models, pricing/timeline framing, hiring, students/careers, industries, and how to reach the team. Answers reuse existing, grounded facts (info@cussolution.com, +1 (307) 313-5867, the four core practices) and link into the relevant service/careers/students/booking/contact pages.
+  - **FAQPage JSON-LD** (`schema.org/FAQPage`) with all 16 questions, each answer's text kept in sync with the visible `<details>/<summary>` copy so it qualifies for FAQ rich results. Full title/description/canonical/OG/Twitter meta, the shared preconnect/non-blocking-font/`defer` performance setup, and the standard header/footer/AI-chat chrome.
+- **Site-wide navigation:** repointed the "FAQ" nav + mobile-menu links from the homepage `index.html#faq` anchor to the new `faq.html` on all 18 interior pages (the homepage keeps its on-page FAQ section and `#faq` anchor), and added a "FAQ" link to the footer **Company** column on every page (20 total).
+- **AI assistant:** added an `ACTION.faq` CTA and a distinctive-keyword FAQ intent (`faq`, `faqs`, `frequently asked`, `common question(s)`, `help center`) to the grounded `CUS_KB` in `js/main.js`, routing FAQ questions to the new page + contact.
+- **SEO:** added `faq.html` to `sitemap.xml` (20 URLs) with `lastmod` 2026-09-17.
+- Verified: HTML well-formedness parsed on all 20 pages (balanced tags, exactly one `<main>` each, every SVG carries aria-hidden, all local hrefs/srcs resolve, styles.css + main.js + skip link present); FAQPage JSON-LD parses and all 16 questions match a visible summary; `sitemap.xml` parses as valid XML; `node --check js/main.js` passes; ran an intent-routing harness confirming the four FAQ phrasings route to faq.html and existing intents (services/hiring/pricing/company/blog/booking) are unaffected.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only).
+- Add FAQ structured data to the homepage's inline `#faq` section too, or converge it with faq.html.
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler.
+
 ## Day 18 — 2026-09-16
 - **Render-blocking resources performance pass across all 19 pages** — targets Lighthouse's "Eliminate render-blocking resources" and connection-setup opportunities without touching the no-build-step Tailwind-CDN architecture:
   - **Preconnect + dns-prefetch to `https://cdn.tailwindcss.com`** (the single largest render-blocking resource, previously un-hinted) so the TLS/connection handshake overlaps earlier work and the critical Tailwind script fetches sooner. Non-CORS preconnect to match the plain `<script src>` fetch.
