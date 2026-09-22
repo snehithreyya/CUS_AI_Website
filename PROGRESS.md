@@ -2,6 +2,20 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 20 — 2026-09-22
+- **Added `BreadcrumbList` structured data (schema.org JSON-LD) to all 19 interior pages** — a site-wide SEO improvement that makes the site eligible for Google breadcrumb rich results (the trail shown under a search result instead of the bare URL). Only `index.html` (Organization) and `faq.html` (FAQPage) previously carried any structured data.
+  - Each page's JSON-LD **mirrors its visible breadcrumb trail exactly** (name + resolved URL, sequential `position`), as Google requires structured data to match on-page content: two-level trails for hub/top pages (Home → About/Services/Industries/Careers/Contact/FAQ/Insights) and three-level trails for nested pages (Home → Services → each of the four practices; Home → Careers → Students; Home → Contact → Book a Consultation; Home → Insights → each of the six articles' category).
+  - URLs are absolute (`https://snehithreyya.github.io/CUS_AI_Website/…`), resolved from each relative breadcrumb `href`, with the leaf item pointing at the page's own canonical URL. No visible markup, CSS, or JS changed — the block is inserted just before `</head>`.
+- Verified: all 21 JSON-LD blocks in the repo parse as valid JSON (19 new BreadcrumbList + existing Organization + FAQPage); every BreadcrumbList has sequential positions and every `item` URL resolves to an existing local file; HTML well-formedness holds on all pages (exactly one `<main>` and one `</head>` each). No JS touched, so `js/main.js` is unchanged.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only).
+- Add `Article`/`BlogPosting` structured data to the six Insights articles (headline, author, datePublished) for article rich results.
+- Add FAQ structured data to the homepage's inline `#faq` section too, or converge it with faq.html.
+
+
 ## Day 19 — 2026-09-17
 - **Built a dedicated FAQ page (`faq.html`) with FAQPage structured data** — a content + SEO improvement that consolidates the questions previously only in the homepage `#faq` section into a comprehensive, standalone, Google rich-result-eligible page.
   - **16 categorized Q&As** across four groups — About CUS Solution, Services & Engagements, Hiring & Careers, and Getting Started — covering what we do, engagement models, pricing/timeline framing, hiring, students/careers, industries, and how to reach the team. Answers reuse existing, grounded facts (info@cussolution.com, +1 (307) 313-5867, the four core practices) and link into the relevant service/careers/students/booking/contact pages.
