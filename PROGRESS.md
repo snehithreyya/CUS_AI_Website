@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 21 — 2026-09-24
+- **Added `BlogPosting` structured data (schema.org JSON-LD) to all six published Insights articles** (`insights-cloud-cost.html`, `insights-tech-staffing.html`, `insights-ai-adoption.html`, `insights-sre-reliability.html`, `insights-legacy-modernization.html`, `insights-new-grad-portfolio.html`) — makes the articles eligible for Google article rich results (byline, publish date) instead of a bare blue link.
+  - Each block mirrors the article's visible content exactly: `headline` matches the on-page `<h1>`, `description` matches the page's meta description, `datePublished`/`dateModified` match the visible byline date (converted to ISO 8601), `articleSection` matches the visible category chip (Cloud, Staffing, AI & Data, Engineering, Software, Careers), and `author`/`publisher` are both the CUS Solution `Organization` with the existing OG share image as the logo/image.
+  - Inserted as a second `<script type="application/ld+json">` block alongside each page's existing `BreadcrumbList`, right before `</head>` — no visible markup, CSS, or JS changed.
+- Verified: all 12 JSON-LD blocks across the six articles (6 BreadcrumbList + 6 new BlogPosting) parse as valid JSON; `node --check js/main.js` passes (unchanged); an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags on all six pages; a local href/src resolution sweep found zero broken links; each page still has exactly one `<head>`, one `<main>` open/close, and one `</html>`.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Add FAQ structured data to the homepage's inline `#faq` section too, or converge it with faq.html.
+- Add `Article`/`BlogPosting` reading-time (`timeRequired`) and `keywords` fields once a content taxonomy is defined.
+
 ## Day 20 — 2026-09-22
 - **Added `BreadcrumbList` structured data (schema.org JSON-LD) to all 19 interior pages** — a site-wide SEO improvement that makes the site eligible for Google breadcrumb rich results (the trail shown under a search result instead of the bare URL). Only `index.html` (Organization) and `faq.html` (FAQPage) previously carried any structured data.
   - Each page's JSON-LD **mirrors its visible breadcrumb trail exactly** (name + resolved URL, sequential `position`), as Google requires structured data to match on-page content: two-level trails for hub/top pages (Home → About/Services/Industries/Careers/Contact/FAQ/Insights) and three-level trails for nested pages (Home → Services → each of the four practices; Home → Careers → Students; Home → Contact → Book a Consultation; Home → Insights → each of the six articles' category).
