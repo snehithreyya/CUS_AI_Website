@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 22 — 2026-09-25
+- **Added `FAQPage` structured data to the homepage's inline `#faq` section** (`index.html`) — the last page on the site with visible FAQ content but no matching JSON-LD (the standalone `faq.html` already had it). The block mirrors the 5 visible `<details>/<summary>` Q&As exactly (What does CUS Solution do? / Do your consultants work on real client projects? / Why aren't your clients listed publicly? / What types of technology projects do you deliver? / How do I hire talent or explore careers?), sitting alongside the existing `Organization` JSON-LD just before `</head>`. Makes the homepage eligible for FAQ rich results in addition to the dedicated FAQ page.
+- **Added `keywords` and `timeRequired` fields to all six `BlogPosting` JSON-LD blocks** (the Insights articles) — closes the Day 21 "Next up" item now that a lightweight taxonomy exists. `timeRequired` is an ISO 8601 duration (e.g. `PT6M`) taken directly from each article's own visible "N min read" badge, so it can never drift from what a reader sees. `keywords` is a short, grounded comma-separated list per article drawn from its real H2 headings/topic (e.g. cloud-cost: FinOps, right-sizing, commitment planning; SRE: SLOs, error budgets, blameless postmortems; new-grad portfolio: tech portfolio, early career, job search projects).
+- Verified: `node --check js/main.js` passes (unchanged); every JSON-LD block across all 20 pages (22 total blocks) parses as valid JSON; an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` per page; a local href/src resolution sweep found zero broken links.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Converge the homepage's inline FAQ and the standalone `faq.html` content set (homepage currently shows a 5-question subset; consider linking out or expanding) so the two don't drift over time.
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 21 — 2026-09-24
 - **Added `BlogPosting` structured data (schema.org JSON-LD) to all six published Insights articles** (`insights-cloud-cost.html`, `insights-tech-staffing.html`, `insights-ai-adoption.html`, `insights-sre-reliability.html`, `insights-legacy-modernization.html`, `insights-new-grad-portfolio.html`) — makes the articles eligible for Google article rich results (byline, publish date) instead of a bare blue link.
   - Each block mirrors the article's visible content exactly: `headline` matches the on-page `<h1>`, `description` matches the page's meta description, `datePublished`/`dateModified` match the visible byline date (converted to ISO 8601), `articleSection` matches the visible category chip (Cloud, Staffing, AI & Data, Engineering, Software, Careers), and `author`/`publisher` are both the CUS Solution `Organization` with the existing OG share image as the logo/image.
