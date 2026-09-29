@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 23 — 2026-09-28
+- **Converged the homepage's inline FAQ with the standalone `faq.html`** — closes the Day 22 "Next up" item flagging that the two could drift. Confirmed the 4 questions shared between `index.html`'s 5-question inline FAQ and `faq.html`'s 16-question set already matched verbatim (question text and answer text identical, including the FAQPage JSON-LD), so no content rewrite was needed. Added a "View all FAQs" link (reusing the site's existing arrow-link pattern from the Services cards) directly under the homepage's FAQ accordion, pointing to `faq.html`, so the homepage is explicit that it shows a subset and readers can reach the full categorized list in one click.
+- No JS, JSON-LD, or other pages touched — a single, additive markup change to `index.html`.
+- Verified: `node --check js/main.js` passes (unchanged); an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` across all 20 pages; a local href/src resolution sweep found zero broken links, including the new `faq.html` link.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 22 — 2026-09-25
 - **Added `FAQPage` structured data to the homepage's inline `#faq` section** (`index.html`) — the last page on the site with visible FAQ content but no matching JSON-LD (the standalone `faq.html` already had it). The block mirrors the 5 visible `<details>/<summary>` Q&As exactly (What does CUS Solution do? / Do your consultants work on real client projects? / Why aren't your clients listed publicly? / What types of technology projects do you deliver? / How do I hire talent or explore careers?), sitting alongside the existing `Organization` JSON-LD just before `</head>`. Makes the homepage eligible for FAQ rich results in addition to the dedicated FAQ page.
 - **Added `keywords` and `timeRequired` fields to all six `BlogPosting` JSON-LD blocks** (the Insights articles) — closes the Day 21 "Next up" item now that a lightweight taxonomy exists. `timeRequired` is an ISO 8601 duration (e.g. `PT6M`) taken directly from each article's own visible "N min read" badge, so it can never drift from what a reader sees. `keywords` is a short, grounded comma-separated list per article drawn from its real H2 headings/topic (e.g. cloud-cost: FinOps, right-sizing, commitment planning; SRE: SLOs, error budgets, blameless postmortems; new-grad portfolio: tech portfolio, early career, job search projects).
