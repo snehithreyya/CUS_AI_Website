@@ -105,9 +105,9 @@ const CUS_KB = [
     actions: [ACTION.services]
   },
   {
-    keys: ['security', 'cyber', 'cybersecurity', 'compliance', 'risk', 'identity'],
-    a: "Our Cybersecurity practice provides advanced threat mitigation, cloud security, identity & access management, and risk assessment & compliance for regulated enterprise environments.",
-    actions: [ACTION.services]
+    keys: ['security', 'cyber', 'cybersecurity', 'compliance', 'risk', 'identity', 'zero trust', 'breach', 'incident response'],
+    a: "Our Cybersecurity practice provides advanced threat mitigation, cloud security, identity & access management, and risk assessment & compliance for regulated enterprise environments. We also wrote up a practical zero-trust roadmap on our Insights blog.",
+    actions: [ACTION.services, { label: 'Read the security roadmap', href: 'insights-cybersecurity-resilience.html', style: 'secondary' }]
   },
   {
     keys: ['career', 'careers', 'job', 'jobs', 'hiring', 'apply', 'opening', 'openings', 'role', 'roles', 'position'],

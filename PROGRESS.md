@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 24 — 2026-10-02
+- **Published a seventh Insights article: `insights-cybersecurity-resilience.html`** ("Zero Trust Isn't a Product: A Practical Cybersecurity Roadmap for Growing Enterprises") — fills the one specialized capability (Cybersecurity) that had service-page coverage but no Insights content, alongside Data & AI, Cloud, Engineering, Software, Staffing, and Careers. Covers identity-first zero trust, cloud misconfiguration as the real top risk, risk-assessment-driven compliance, and rehearsed incident response, with a Key Takeaways card and a Related Reading section cross-linking to the AI Adoption and SRE Reliability articles. Carries the full BreadcrumbList + BlogPosting JSON-LD, OG/Twitter meta, and canonical tag matching every other article.
+- **Wired the new article into the site:** added it as the lead card in `insights.html`'s "Latest articles" grid and a new "Security" chip under "Browse by topic" (linking to a new `id="cybersecurity"` anchor added to the matching card in `services.html`'s Specialized Capabilities section, since Cybersecurity has no standalone service-detail page). Added the URL to `sitemap.xml` and bumped `lastmod` on `insights.html` and `services.html`.
+- **Assistant KB:** expanded the existing `security/cyber/cybersecurity/...` intent in `js/main.js` with `zero trust`, `breach`, and `incident response` trigger keywords, and added a secondary "Read the security roadmap" action linking to the new article so security questions in the chat now surface both the service page and the write-up.
+- Verified: `node --check js/main.js` passes; CSS brace balance (80/80); an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` across all 21 pages (20 existing + the new article); a local href/src resolution sweep found zero broken links; all JSON-LD blocks site-wide (including the two new ones) parse as valid JSON; confirmed the services.html `#cybersecurity` anchor resolves to the correct card.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Retrofit the new Security article into the existing Related Reading sections of `insights-ai-adoption.html` and `insights-sre-reliability.html` (currently only linked one-way) so the cross-link graph is symmetric.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 23 — 2026-09-28
 - **Converged the homepage's inline FAQ with the standalone `faq.html`** — closes the Day 22 "Next up" item flagging that the two could drift. Confirmed the 4 questions shared between `index.html`'s 5-question inline FAQ and `faq.html`'s 16-question set already matched verbatim (question text and answer text identical, including the FAQPage JSON-LD), so no content rewrite was needed. Added a "View all FAQs" link (reusing the site's existing arrow-link pattern from the Services cards) directly under the homepage's FAQ accordion, pointing to `faq.html`, so the homepage is explicit that it shows a subset and readers can reach the full categorized list in one click.
 - No JS, JSON-LD, or other pages touched — a single, additive markup change to `index.html`.
