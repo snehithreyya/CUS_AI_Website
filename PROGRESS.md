@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 25 — 2026-10-05
+- **Made the Insights cross-link graph symmetric** — closes the Day 24 "Next up" item flagging that the new Security article (`insights-cybersecurity-resilience.html`) was only linked *from* its two Related Reading picks (SRE Reliability, AI Adoption) but not *back from* them. Added a third Related Reading card for the Security article to both `insights-ai-adoption.html` and `insights-sre-reliability.html`, each with a context-specific blurb (AI piece: "the security foundation production AI systems also need"; SRE piece: "the security practices that complement reliability engineering") reusing the same cyan "Security" category chip and 6-min-read badge as the source article.
+- **Grid layout:** widened the Related Reading section on both pages from `md:grid-cols-2` to `md:grid-cols-3` to fit the third card without disturbing the two existing cards or their copy.
+- **SEO:** bumped `lastmod` to 2026-10-05 for `insights-ai-adoption.html` and `insights-sre-reliability.html` in `sitemap.xml` (both pages' visible content changed; no new URLs added, no other pages touched).
+- Verified: `node --check js/main.js` passes (unchanged); CSS brace balance 80/80 (unchanged); an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags, exactly one `<main>`, and zero SVGs missing `aria-hidden`/`role` across all 21 pages; a local href/src resolution sweep found zero broken links; all 30 JSON-LD blocks site-wide parse as valid JSON; `sitemap.xml` parses as valid XML (21 URLs); confirmed both new cross-links resolve to the existing Security article with no self-links.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 24 — 2026-10-02
 - **Published a seventh Insights article: `insights-cybersecurity-resilience.html`** ("Zero Trust Isn't a Product: A Practical Cybersecurity Roadmap for Growing Enterprises") — fills the one specialized capability (Cybersecurity) that had service-page coverage but no Insights content, alongside Data & AI, Cloud, Engineering, Software, Staffing, and Careers. Covers identity-first zero trust, cloud misconfiguration as the real top risk, risk-assessment-driven compliance, and rehearsed incident response, with a Key Takeaways card and a Related Reading section cross-linking to the AI Adoption and SRE Reliability articles. Carries the full BreadcrumbList + BlogPosting JSON-LD, OG/Twitter meta, and canonical tag matching every other article.
 - **Wired the new article into the site:** added it as the lead card in `insights.html`'s "Latest articles" grid and a new "Security" chip under "Browse by topic" (linking to a new `id="cybersecurity"` anchor added to the matching card in `services.html`'s Specialized Capabilities section, since Cybersecurity has no standalone service-detail page). Added the URL to `sitemap.xml` and bumped `lastmod` on `insights.html` and `services.html`.
