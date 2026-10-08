@@ -1,0 +1,14 @@
+{
+  "name": "CUS Solution",
+  "short_name": "CUS Solution",
+  "description": "Technology consulting, staffing, and in-house innovation for enterprise delivery.",
+  "start_url": "/CUS_AI_Website/",
+  "scope": "/CUS_AI_Website/",
+  "display": "standalone",
+  "background_color": "#0a1633",
+  "theme_color": "#0a1633",
+  "icons": [
+    { "src": "android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
