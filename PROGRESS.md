@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 27 — 2026-10-12
+- **Added `Service` structured data (schema.org JSON-LD) to all four service-detail pages** (`technology-consulting.html`, `software-development.html`, `cloud-solutions.html`, `engineering-services.html`) — closes the Day 26 "Next up" item flagging that these pages carried only `BreadcrumbList` JSON-LD while every other content type (Organization, FAQPage, BlogPosting) already had matching structured data.
+  - Each block mirrors the page's visible content exactly: `name`/`serviceType` match the `<h1>` practice name, `description` matches the page's meta description, `provider` is the CUS Solution `Organization` (name, url, email, phone), `areaServed` is the United States, and `url` is the page's own canonical URL.
+  - A `hasOfferCatalog` (`OfferCatalog`) lists all six visible capability cards from each page's "What We Deliver" grid as `Offer` → `itemOffered` `Service` entries, with `name`/`description` copied verbatim from the on-page `<h3>`/`<p>` text (24 capabilities total across the four pages) — so the markup can never drift from what a reader sees.
+  - Inserted as a second `<script type="application/ld+json">` block on each page, immediately after the existing `BreadcrumbList` block and before `</head>`. No visible markup, CSS, or JS changed.
+- Verified: an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` across all 22 pages; all 34 JSON-LD blocks site-wide (30 existing + 4 new `Service` blocks) parse as valid JSON; a local href/src resolution sweep found zero broken links; `node --check js/main.js` passes (unchanged, no JS touched this run).
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 26 — 2026-10-08
 - **Added a complete site favicon and app-icon set** — the site previously shipped zero favicon references anywhere, so every browser tab, bookmark, and mobile home-screen add fell back to a generic blank-page icon. Built a brand-accurate icon matching the header/footer globe mark (the circle + meridian glyph on the brand-500→brand-600 gradient square): a scalable `favicon.svg` (hand-authored, matches the mark's exact paths), raster fallbacks generated with Pillow (`favicon-16.png`, `favicon-32.png`, `favicon.ico` multi-size, `apple-touch-icon.png` at 180×180 with a solid non-transparent background per Apple's guidance, and `android-chrome-192/512.png`), and a `site.webmanifest` (name, theme/background color `#0a1633`, icon list) for Android "Add to Home Screen" support.
 - **Wired the full icon set into all 21 existing pages** — inserted the same six `<link rel="icon"/"apple-touch-icon"/"manifest">` tags immediately after each page's existing `theme-color` meta tag, so every page now resolves a tab icon instead of a 404 on the implicit `/favicon.ico` request browsers make.
