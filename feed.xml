@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2000/05/atom">
+<channel>
+  <title>CUS Solution Insights</title>
+  <link>https://snehithreyya.github.io/CUS_AI_Website/insights.html</link>
+  <atom:link href="https://snehithreyya.github.io/CUS_AI_Website/feed.xml" rel="self" type="application/rss+xml" />
+  <description>Practical guidance from CUS Solution's consultants and engineers on cloud cost, AI adoption, modernization, reliability, security, staffing, and early-career tech.</description>
+  <language>en-us</language>
+  <generator>CUS Solution static site</generator>
+  <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+  <image>
+    <url>https://snehithreyya.github.io/CUS_AI_Website/android-chrome-192.png</url>
+    <title>CUS Solution Insights</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights.html</link>
+  </image>
+
+  <item>
+    <title>Zero Trust Isn't a Product: A Practical Cybersecurity Roadmap</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-cybersecurity-resilience.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-cybersecurity-resilience.html</guid>
+    <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Most breaches exploit missing basics, not zero-day exploits. A practical, risk-first cybersecurity roadmap covering identity, cloud security, compliance, and incident response for growing enterprises.</description>
+    <category>Security</category>
+  </item>
+
+  <item>
+    <title>Modernizing Legacy Systems Without a Big-Bang Rewrite</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-legacy-modernization.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-legacy-modernization.html</guid>
+    <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Full rewrites fail more often than they ship. Here is how to modernize legacy systems incrementally — strangler-fig migration, seams, and shipping value along the way.</description>
+    <category>Software</category>
+  </item>
+
+  <item>
+    <title>Designing for Reliability: SRE Practices That Scale</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-sre-reliability.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-sre-reliability.html</guid>
+    <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Site reliability engineering is less about heroics and more about disciplined defaults. Here are the SRE practices that scale with your team — SLOs, error budgets, and blameless learning.</description>
+    <category>Engineering</category>
+  </item>
+
+  <item>
+    <title>Building a Standout Tech Portfolio as a New Graduate</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-new-grad-portfolio.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-new-grad-portfolio.html</guid>
+    <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+    <description>Grades open doors; a portfolio gets you hired. Here is how new graduates can build projects that prove real skills — depth over breadth, README-first, and shipping something real.</description>
+    <category>Careers &amp; Staffing</category>
+  </item>
+
+  <item>
+    <title>Cutting Cloud Costs Without Slowing Teams Down</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-cloud-cost.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-cloud-cost.html</guid>
+    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A practical FinOps playbook: reduce cloud spend 20–40% through visibility, right-sizing, commitment planning, and a lightweight cost culture — without slowing delivery.</description>
+    <category>Cloud</category>
+  </item>
+
+  <item>
+    <title>Choosing the Right Tech Staffing Model</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-tech-staffing.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-tech-staffing.html</guid>
+    <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+    <description>A hiring manager's guide to matching the engagement model — contract, contract-to-hire, or direct placement — to the shape of the work, budget, and timeline.</description>
+    <category>Careers &amp; Staffing</category>
+  </item>
+
+  <item>
+    <title>From Pilot to Production: Enterprise AI Adoption</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-ai-adoption.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-ai-adoption.html</guid>
+    <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+    <description>Why most enterprise AI pilots stall before production, and a stage-gated adoption path — use-case selection, data readiness, evaluation, and governance — that ships value.</description>
+    <category>AI &amp; Data</category>
+  </item>
+
+</channel>
+</rss>

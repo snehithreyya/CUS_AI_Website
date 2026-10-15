@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 28 — 2026-10-15
+- **Added a real RSS feed for the Insights blog (`feed.xml`):** RSS 2.0 with all 7 published articles (title, link, guid, pubDate, description, category), sorted newest-first by `datePublished`, plus an `atom:link rel="self"` and channel image. This gives the blog an actual subscription mechanism — the existing "Subscribe" form only composes a `mailto:` request, which the UI already flags as not storing any data, so the feed is a zero-maintenance, no-backend way to let readers (and feed readers/aggregators) follow new posts without handing over an email address.
+- **Wired RSS autodiscovery site-wide:** added `<link rel="alternate" type="application/rss+xml" href="feed.xml">` to the `<head>` of all 22 pages (same pattern as the Day 26 favicon rollout), so browsers and feed readers can discover the feed from any page. Added a visible "Subscribe via RSS" link next to the newsletter form on `insights.html` for readers who'd rather not share an email address.
+- **Added `prefers-reduced-motion` support to `css/styles.css`:** users who have asked their OS/browser to minimize motion now get `scroll-behavior: auto`, no scroll-reveal transition/transform, and no industries marquee animation — a small, sitewide accessibility gap (the reveal-on-scroll and marquee animations had no reduced-motion fallback anywhere in the stylesheet) closed in one shared file.
+- Verified: `node --check js/main.js` passes (unchanged); CSS brace balance 84/84; an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` across all 22 pages; all 34 JSON-LD blocks site-wide still parse as valid JSON; a local href/src resolution sweep found zero broken links (including the new `feed.xml` references); `feed.xml` and `sitemap.xml` both parse as valid XML.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+- Consider adding `feed.xml` as a secondary nav/footer link site-wide (currently only linked from the Insights page) if readers ask for it elsewhere.
+
 ## Day 27 — 2026-10-12
 - **Added `Service` structured data (schema.org JSON-LD) to all four service-detail pages** (`technology-consulting.html`, `software-development.html`, `cloud-solutions.html`, `engineering-services.html`) — closes the Day 26 "Next up" item flagging that these pages carried only `BreadcrumbList` JSON-LD while every other content type (Organization, FAQPage, BlogPosting) already had matching structured data.
   - Each block mirrors the page's visible content exactly: `name`/`serviceType` match the `<h1>` practice name, `description` matches the page's meta description, `provider` is the CUS Solution `Organization` (name, url, email, phone), `areaServed` is the United States, and `url` is the page's own canonical URL.

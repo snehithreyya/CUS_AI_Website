@@ -224,3 +224,12 @@ main:focus { outline: none; }
 .article-prose ul { margin: 0 0 1.25rem; }
 .article-prose a { color: var(--blue-600); text-decoration: underline; }
 .article-prose a:hover { color: var(--blue-500); }
+
+/* Respect reduced-motion preference: disable scroll-reveal transitions,
+   the industries marquee animation, and smooth scrolling for users who
+   have asked their OS/browser to minimize motion. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee { animation: none; }
+}
