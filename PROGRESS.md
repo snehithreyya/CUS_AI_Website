@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 29 — 2026-10-19
+- **Site-wide RSS feed link in the footer:** closed the Day 28 "Next up" item noting `feed.xml` was only discoverable from `insights.html`'s inline "Subscribe via RSS" link (plus the `<link rel="alternate">` autodiscovery tag already on every page's `<head>`). Added a visible "RSS Feed" link to the footer's "Connect" column, right after Instagram, across all 22 pages — so the feed is reachable from anywhere on the site, not just the blog index, matching how LinkedIn/Instagram/email are already surfaced there.
+- No JS, JSON-LD, or page content otherwise touched — a single, additive footer-link change applied identically everywhere.
+- Verified: `node --check js/main.js` passes (unchanged); an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` across all 22 pages; confirmed the new "RSS Feed" link is present on all 22 pages; a local href/src resolution sweep found zero broken links (including the footer's new `feed.xml` reference, which already existed at the repo root).
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+
 ## Day 28 — 2026-10-15
 - **Added a real RSS feed for the Insights blog (`feed.xml`):** RSS 2.0 with all 7 published articles (title, link, guid, pubDate, description, category), sorted newest-first by `datePublished`, plus an `atom:link rel="self"` and channel image. This gives the blog an actual subscription mechanism — the existing "Subscribe" form only composes a `mailto:` request, which the UI already flags as not storing any data, so the feed is a zero-maintenance, no-backend way to let readers (and feed readers/aggregators) follow new posts without handing over an email address.
 - **Wired RSS autodiscovery site-wide:** added `<link rel="alternate" type="application/rss+xml" href="feed.xml">` to the `<head>` of all 22 pages (same pattern as the Day 26 favicon rollout), so browsers and feed readers can discover the feed from any page. Added a visible "Subscribe via RSS" link next to the newsletter form on `insights.html` for readers who'd rather not share an email address.
