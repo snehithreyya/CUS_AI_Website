@@ -7,12 +7,21 @@
   <description>Practical guidance from CUS Solution's consultants and engineers on cloud cost, AI adoption, modernization, reliability, security, staffing, and early-career tech.</description>
   <language>en-us</language>
   <generator>CUS Solution static site</generator>
-  <lastBuildDate>Fri, 02 Oct 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 22 Oct 2026 00:00:00 GMT</lastBuildDate>
   <image>
     <url>https://snehithreyya.github.io/CUS_AI_Website/android-chrome-192.png</url>
     <title>CUS Solution Insights</title>
     <link>https://snehithreyya.github.io/CUS_AI_Website/insights.html</link>
   </image>
+
+  <item>
+    <title>Compliance Isn't a Checkbox: Building Technology That Fits Regulated Industries</title>
+    <link>https://snehithreyya.github.io/CUS_AI_Website/insights-regulated-industries.html</link>
+    <guid isPermaLink="true">https://snehithreyya.github.io/CUS_AI_Website/insights-regulated-industries.html</guid>
+    <pubDate>Thu, 22 Oct 2026 00:00:00 GMT</pubDate>
+    <description>The same engineering playbook does not travel unchanged across healthcare, finance, and manufacturing. What actually changes by industry, what doesn't, and how to staff for both.</description>
+    <category>Industries</category>
+  </item>
 
   <item>
     <title>Zero Trust Isn't a Product: A Practical Cybersecurity Roadmap</title>

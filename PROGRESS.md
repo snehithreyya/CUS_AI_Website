@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 30 — 2026-10-22
+- **Published an eighth Insights article: `insights-regulated-industries.html`** ("Compliance Isn't a Checkbox: Building Technology That Fits Regulated Industries") — closes a real content gap: of the seven "Browse by topic" chips on `insights.html` (Cloud, Software, AI & Data, Engineering, Security, Careers & Staffing, Industries), "Industries" was the only one with zero backing article in the "Latest articles" grid. The new piece covers what genuinely changes by sector (PHI/audit trails in healthcare, SOC 2/PCI reconciliation accuracy in finance, OT/IT traceability in manufacturing), what doesn't (testing, least-privilege access, observability), and a three-part framework — compliance-aware by design, domain-fluent staffing, outcome-focused delivery — lifted directly from `industries.html`'s existing "How We Serve" trio so the article and the service page stay consistent. Carries full BreadcrumbList + BlogPosting JSON-LD, OG/Twitter meta, and canonical tag matching every other article.
+- **Wired the new article into the site:** added it as the lead card in `insights.html`'s "Latest articles" grid; added reciprocal Related Reading cards to `insights-cybersecurity-resilience.html` and `insights-tech-staffing.html` (widened both grids from `md:grid-cols-2` to `md:grid-cols-3`) so the cross-link graph is symmetric from day one, following the same pattern used for the Security article's rollout; added the new item to `feed.xml` (newest-first) and a new `sitemap.xml` entry, bumping `lastmod` on `insights.html`, `insights-tech-staffing.html`, and `insights-cybersecurity-resilience.html` to reflect their content changes.
+- Verified: `node --check js/main.js` passes (unchanged, no JS touched this run); an HTML well-formedness pass (Python `html.parser` tag-balance check) found zero mismatched tags and exactly one `<main>` across all 23 pages (22 existing + the new article); a local href/src resolution sweep found zero broken links; all 36 JSON-LD blocks site-wide (34 existing + 2 new) parse as valid JSON; `feed.xml` and `sitemap.xml` both parse as valid XML (`sitemap.xml` now lists 22 URLs).
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+- Consider expanding the assistant's `CUS_KB` in `js/main.js` with an explicit "regulated industries / compliance" intent that surfaces the new article alongside the existing Industries page.
+
 ## Day 29 — 2026-10-19
 - **Site-wide RSS feed link in the footer:** closed the Day 28 "Next up" item noting `feed.xml` was only discoverable from `insights.html`'s inline "Subscribe via RSS" link (plus the `<link rel="alternate">` autodiscovery tag already on every page's `<head>`). Added a visible "RSS Feed" link to the footer's "Connect" column, right after Instagram, across all 22 pages — so the feed is reachable from anywhere on the site, not just the blog index, matching how LinkedIn/Instagram/email are already surfaced there.
 - No JS, JSON-LD, or page content otherwise touched — a single, additive footer-link change applied identically everywhere.
