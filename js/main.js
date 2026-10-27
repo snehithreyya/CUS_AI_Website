@@ -105,6 +105,41 @@ const CUS_KB = [
     actions: [ACTION.services]
   },
   {
+    keys: ['regulated', 'regulation', 'regulatory', 'compliance', 'compliant', 'hipaa', 'sox', 'pci', 'gdpr', 'soc 2', 'soc2', 'audit', 'auditor', 'fda', 'gxp', 'data privacy', 'validated system'],
+    a: "Regulated work changes how technology is built, not just how it's documented. We build audit trails, access controls, data-handling rules, and validation into the delivery process itself across Healthcare, Finance & Banking, Insurance, Pharmaceuticals, and Biotechnology — and staff teams with people who know those constraints. Our Insights article walks through what actually changes by industry:",
+    actions: [{ label: 'Read: compliance in regulated industries', href: 'insights-regulated-industries.html' }, ACTION.industries, ACTION.book]
+  },
+  {
+    keys: ['cloud cost', 'cloud spend', 'cloud bill', 'finops', 'reduce cost', 'cut cost', 'lower cost', 'cost optimization', 'optimize cost', 'right-sizing', 'rightsizing', 'reserved instance', 'savings plan', 'overspend'],
+    a: "Most teams can trim cloud spend meaningfully without slowing delivery — through cost visibility and tagging, right-sizing, commitment planning, and a lightweight FinOps culture. Our Cloud Solutions practice does this hands-on, and our FinOps playbook lays out the approach:",
+    actions: [{ label: 'Read the FinOps playbook', href: 'insights-cloud-cost.html' }, { label: 'Cloud Solutions', href: 'cloud-solutions.html', style: 'secondary' }, ACTION.book]
+  },
+  {
+    keys: ['ai adoption', 'adopt ai', 'ai pilot', 'pilot', 'pilot to production', 'proof of concept', 'genai', 'generative ai', 'llm', 'ai strategy', 'ai roadmap', 'ai governance', 'mlops', 'production ai'],
+    a: "Most enterprise AI pilots stall before production because of use-case selection, data readiness, evaluation, or governance — not the model. We help teams take a stage-gated path from pilot to shipped value. Here's our practical guide:",
+    actions: [{ label: 'Read: from pilot to production', href: 'insights-ai-adoption.html' }, ACTION.services, ACTION.book]
+  },
+  {
+    keys: ['legacy', 'mainframe', 'rewrite', 'monolith', 'strangler', 'modernize', 'modernise', 'replatform', 'refactor', 'technical debt', 'tech debt', 'outdated system', 'old system'],
+    a: "Big-bang rewrites fail more often than they ship. We modernize legacy systems incrementally — finding seams, migrating piece by piece with the strangler-fig pattern, and delivering value along the way. Technology Consulting and Software Development work together on these engagements:",
+    actions: [{ label: 'Read: modernizing legacy systems', href: 'insights-legacy-modernization.html' }, { label: 'Technology Consulting', href: 'technology-consulting.html', style: 'secondary' }, ACTION.book]
+  },
+  {
+    keys: ['sre', 'site reliability', 'reliability', 'uptime', 'downtime', 'outage', 'slos', 'service level objective', 'error budget', 'observability', 'monitoring', 'on-call', 'oncall', 'postmortem', 'post-mortem'],
+    a: "Reliability comes from disciplined defaults, not heroics: SLOs that reflect what users feel, error budgets that balance speed and stability, good observability, and blameless learning after incidents. Our Cloud Solutions / DevOps teams put these practices in place — here's how we think about it:",
+    actions: [{ label: 'Read: SRE practices that scale', href: 'insights-sre-reliability.html' }, { label: 'Cloud Solutions', href: 'cloud-solutions.html', style: 'secondary' }, ACTION.book]
+  },
+  {
+    keys: ['contract-to-hire', 'contract to hire', 'direct hire', 'direct-hire', 'direct placement', 'temp to perm', 'staffing model', 'hiring model', 'engagement model', 'permanent hire', 'full-time hire', 'corp-to-corp', 'c2c', 'w2'],
+    a: "The right model depends on the shape of the work: contract for defined, time-boxed needs; contract-to-hire when you want to validate fit before committing; direct hire for long-term core roles. We support all three — our hiring manager's guide breaks down the trade-offs, or we can talk through your specific roles:",
+    actions: [{ label: 'Read: choosing a staffing model', href: 'insights-tech-staffing.html' }, ACTION.book, ACTION.contact]
+  },
+  {
+    keys: ['portfolio', 'resume', 'résumé', 'github profile', 'side project', 'personal project', 'interview prep', 'interview tips', 'stand out', 'job search', 'first job', 'no experience'],
+    a: "For early-career candidates, a focused portfolio often matters more than grades — go deep on a few real projects, write a clear README for each, and ship something people can actually use. Our guide covers how, and our Students & New Grads page shows the pathways we offer:",
+    actions: [{ label: 'Read: building a standout portfolio', href: 'insights-new-grad-portfolio.html' }, ACTION.students, ACTION.careers]
+  },
+  {
     keys: ['security', 'cyber', 'cybersecurity', 'compliance', 'risk', 'identity', 'zero trust', 'breach', 'incident response'],
     a: "Our Cybersecurity practice provides advanced threat mitigation, cloud security, identity & access management, and risk assessment & compliance for regulated enterprise environments. We also wrote up a practical zero-trust roadmap on our Insights blog.",
     actions: [ACTION.services, { label: 'Read the security roadmap', href: 'insights-cybersecurity-resilience.html', style: 'secondary' }]
@@ -171,7 +206,7 @@ const CUS_KB = [
   },
   {
     keys: ['insight', 'insights', 'blog', 'article', 'articles', 'read', 'resources', 'guide', 'guides', 'newsletter', 'post', 'posts'],
-    a: "Our Insights blog shares practical guidance from our consultants and engineers — on cloud cost optimization, enterprise AI adoption, software modernization, and tech staffing. Browse the latest articles or subscribe to get new ones by email.",
+    a: "Our Insights blog shares practical guidance from our consultants and engineers — on cloud cost (FinOps), enterprise AI adoption, legacy modernization, SRE and reliability, zero-trust security, compliance in regulated industries, choosing a staffing model, and building a new-grad portfolio. Ask me about any of those, browse the latest articles or subscribe to get new ones by email.",
     actions: [ACTION.insights, ACTION.book]
   },
   {

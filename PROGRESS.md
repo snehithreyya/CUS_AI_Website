@@ -2,6 +2,26 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 31 — 2026-10-27
+- **Expanded the AI assistant's grounded knowledge base (`CUS_KB` in `js/main.js`) with seven topic-specific intents**, closing the Day 30 "Next up" item and connecting the assistant to every Insights article (previously only the security article was reachable from a chat answer):
+  - **Regulated industries / compliance** (HIPAA, SOX, PCI, GDPR, SOC 2, audit, FDA/GxP, data privacy) → `insights-regulated-industries.html` + Industries + booking.
+  - **Cloud cost / FinOps** (cloud spend, right-sizing, reserved instances, savings plans) → `insights-cloud-cost.html` + Cloud Solutions.
+  - **Enterprise AI adoption** (pilot to production, GenAI/LLM, AI governance, MLOps) → `insights-ai-adoption.html`.
+  - **Legacy modernization** (mainframe, monolith, strangler-fig, tech debt) → `insights-legacy-modernization.html` + Technology Consulting.
+  - **SRE / reliability** (uptime, outages, SLOs, error budgets, observability, on-call) → `insights-sre-reliability.html` + Cloud Solutions.
+  - **Staffing models** (contract, contract-to-hire, direct hire, C2C/W2) → `insights-tech-staffing.html` + booking.
+  - **New-grad portfolio / job search** (resume, side projects, interview prep) → `insights-new-grad-portfolio.html` + Students + Careers.
+  - New intents are inserted ahead of the general Cybersecurity entry and use multi-word, high-signal keys so they outscore the broad practice intents on specific questions, while generic questions ("zero trust security", "cloud migration on AWS", "what jobs are open") still route to the original answers. Answers paraphrase each article's published summary — no new claims (no certifications or client names).
+  - Refreshed the general Insights answer to list all eight article topics.
+- Verified: `node --check js/main.js` passes; a Node routing harness ran 12 sample questions through the assistant's exact scoring logic (12/12 routed as intended — one initial miss on "AI pilot" vs. the Data & AI intent was fixed by adding a `pilot` key); every `href` referenced by the KB's action buttons resolves to an existing file; HTML tag-balance check clean across all pages (no HTML touched this run).
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section for additional content depth (using real, attributable quotes only — none available yet).
+- Further performance: self-host or pin a compiled Tailwind build to drop the runtime CDN compiler (would introduce a light build step — revisit if acceptable).
+- Assistant: consider weighting multi-word keys above single-word keys in `matchKB` scoring (currently every substring hit scores 1, so ties fall to KB order), and suggested follow-up chips under answers.
+
 ## Day 30 — 2026-10-22
 - **Published an eighth Insights article: `insights-regulated-industries.html`** ("Compliance Isn't a Checkbox: Building Technology That Fits Regulated Industries") — closes a real content gap: of the seven "Browse by topic" chips on `insights.html` (Cloud, Software, AI & Data, Engineering, Security, Careers & Staffing, Industries), "Industries" was the only one with zero backing article in the "Latest articles" grid. The new piece covers what genuinely changes by sector (PHI/audit trails in healthcare, SOC 2/PCI reconciliation accuracy in finance, OT/IT traceability in manufacturing), what doesn't (testing, least-privilege access, observability), and a three-part framework — compliance-aware by design, domain-fluent staffing, outcome-focused delivery — lifted directly from `industries.html`'s existing "How We Serve" trio so the article and the service page stay consistent. Carries full BreadcrumbList + BlogPosting JSON-LD, OG/Twitter meta, and canonical tag matching every other article.
 - **Wired the new article into the site:** added it as the lead card in `insights.html`'s "Latest articles" grid; added reciprocal Related Reading cards to `insights-cybersecurity-resilience.html` and `insights-tech-staffing.html` (widened both grids from `md:grid-cols-2` to `md:grid-cols-3`) so the cross-link graph is symmetric from day one, following the same pattern used for the Security article's rollout; added the new item to `feed.xml` (newest-first) and a new `sitemap.xml` entry, bumping `lastmod` on `insights.html`, `insights-tech-staffing.html`, and `insights-cybersecurity-resilience.html` to reflect their content changes.
