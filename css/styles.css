@@ -233,3 +233,7 @@ main:focus { outline: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .marquee { animation: none; }
 }
+
+.msg .chat-followups { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.chat-followups .sugg { font-family: inherit; font-size: .75rem; }
+.chat-followups .sugg:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }

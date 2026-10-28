@@ -2,6 +2,16 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 32 — 2026-10-28
+- **Assistant routing + follow-up chips (`js/main.js`, `css/styles.css`):** `matchKB` now weights each keyword hit by its word count, so specific multi-word keys (e.g. "cloud cost", "contract to hire") outrank broad single words instead of tying on KB order — closes the Day 31 scoring item. Each answer now also renders up to three on-topic follow-up question chips (chosen from the answer's primary action page via a `FOLLOWUPS` map); clicking one submits it and clears the previous chips. RAG-backend replies are unaffected (no chips unless supplied).
+- Verified: `node --check js/main.js` passes; a Node harness ran six sample questions through the new scoring and follow-up lookup, all routed as intended; no HTML touched.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+- Further performance: pin a compiled Tailwind build to drop the runtime CDN compiler (needs a light build step).
+
 ## Day 31 — 2026-10-27
 - **Expanded the AI assistant's grounded knowledge base (`CUS_KB` in `js/main.js`) with seven topic-specific intents**, closing the Day 30 "Next up" item and connecting the assistant to every Insights article (previously only the security article was reachable from a chat answer):
   - **Regulated industries / compliance** (HIPAA, SOX, PCI, GDPR, SOC 2, audit, FDA/GxP, data privacy) → `insights-regulated-industries.html` + Industries + booking.

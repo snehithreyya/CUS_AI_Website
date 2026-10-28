@@ -275,6 +275,23 @@ async function queryRAG(q, history) {
   }
 }
 
+// Follow-up question chips shown under an answer, chosen from the
+// answer's primary action so suggestions stay on-topic.
+const FOLLOWUPS = {
+  'services.html': ['How do I hire talent?', 'What industries do you serve?', 'Book a consultation'],
+  'industries.html': ['What services do you offer?', 'How does compliance work in regulated industries?', 'Book a consultation'],
+  'careers.html': ['Tell me about students and new grads', 'What are the staffing models?', 'Contact the team'],
+  'students.html': ['Explore careers', 'How do I build a portfolio?', 'Contact the team'],
+  'booking.html': ['What services do you offer?', 'Contact the team', 'See the FAQ'],
+  'contact.html': ['Book a consultation', 'What services do you offer?', 'See the FAQ'],
+  'insights.html': ['What services do you offer?', 'Book a consultation'],
+  'faq.html': ['What services do you offer?', 'Book a consultation']
+};
+function followupsFor(item) {
+  const first = (item.actions || []).find(a => a && FOLLOWUPS[a.href]);
+  return first ? FOLLOWUPS[first.href] : ['What services do you offer?', 'Book a consultation'];
+}
+
 const CHAT = {
   el: {},
   booted: false,
@@ -305,7 +322,7 @@ const CHAT = {
     }
     if (open) setTimeout(() => this.el.input.focus(), 250);
   },
-  add(text, who, actions) {
+  add(text, who, actions, followups) {
     const m = document.createElement('div');
     m.className = 'msg ' + who;
     const t = document.createElement('span');
@@ -324,19 +341,37 @@ const CHAT = {
       });
       if (wrap.childNodes.length) m.appendChild(wrap);
     }
+    if (followups && followups.length) {
+      const fw = document.createElement('div');
+      fw.className = 'chat-followups';
+      followups.forEach(f => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'sugg';
+        b.textContent = f;
+        b.addEventListener('click', () => {
+          document.querySelectorAll('.chat-followups').forEach(n => n.remove());
+          this.el.input.value = f; this.submit();
+        });
+        fw.appendChild(b);
+      });
+      m.appendChild(fw);
+    }
     this.el.body.appendChild(m);
     this.el.body.scrollTop = this.el.body.scrollHeight;
     return m;
   },
-  bot(text, actions) { this.add(text, 'bot', actions); },
+  bot(text, actions, followups) { this.add(text, 'bot', actions, followups); },
   matchKB(q) {
     const ql = q.toLowerCase();
     let best = null, bestScore = 0;
     for (const item of CUS_KB) {
-      const score = item.keys.reduce((s, k) => s + (ql.includes(k) ? 1 : 0), 0);
+      // Weight each hit by its word count so specific multi-word keys
+      // ("cloud cost", "contract to hire") outrank broad single words.
+      const score = item.keys.reduce((s, k) => s + (ql.includes(k) ? k.trim().split(/\s+/).length : 0), 0);
       if (score > bestScore) { bestScore = score; best = item; }
     }
-    if (best && bestScore > 0) return { text: best.a, actions: best.actions || [] };
+    if (best && bestScore > 0) return { text: best.a, actions: best.actions || [], followups: followupsFor(best) };
     return {
       text: "Great question. I keep answers grounded in CUS Solution's work, so I can't speak to that specifically — but our team can. You can book a consultation or reach them at info@cussolution.com / +1 (307) 313-5867. Meanwhile, I can help with our services, industries, careers, or hiring talent.",
       actions: [ACTION.book, ACTION.contact]
@@ -360,7 +395,8 @@ const CHAT = {
       const wait = Math.max(0, 500 - (Date.now() - started));
       setTimeout(() => {
         typing.remove();
-        this.bot(reply.text, reply.actions);
+        document.querySelectorAll('.chat-followups').forEach(n => n.remove());
+        this.bot(reply.text, reply.actions, reply.followups);
         this.history.push({ role: 'assistant', text: reply.text });
       }, wait);
     });
