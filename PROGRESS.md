@@ -2,6 +2,17 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 34 — 2026-11-11
+- **Privacy Policy restored and shipped:** the Nov 9 Privacy Policy work never reached the repo (the GitHub token had expired), and the Tailwind precompile run later overwrote the local footer/JS/sitemap changes. Re-applied on top of the precompiled build: `privacy.html` now links `css/tailwind.css` (CDN script, inline config and CDN preconnects removed); "Privacy Policy" link restored in the footer bottom bar on all 23 other pages; `privacy` intent, action button and follow-up chips restored in `CUS_KB` (`js/main.js`); `privacy.html` entry added to `sitemap.xml`. Rebuilt `css/tailwind.css` so it includes the privacy page's classes.
+- Token renewed in `.github-token`; the precompiled-Tailwind build files (css/tailwind.css, tailwind.config.js, src/, package.json, lockfile, workflow build step) were pushed separately after a brief window where the pages linked a stylesheet that wasn't yet in the repo.
+- Verified: `node --check js/main.js`; HTML tag-balance + local href/src sweep clean on all 24 pages; JSON-LD, sitemap.xml and feed.xml parse.
+
+### Next up
+- Terms of Use page (footer link next to Privacy Policy).
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+
 ## Day 33 — 2026-11-11
 - **Replaced the Tailwind Play CDN with a precompiled stylesheet (performance):** closes the long-standing "pin a compiled Tailwind build" Next-up item. Every page previously loaded `cdn.tailwindcss.com` (a ~400 KB JavaScript compiler that generates CSS in the browser at runtime, causing an unstyled flash and blocking render) plus an inline `tailwind.config` script. All 23 pages now link a static, minified `css/tailwind.css` (~18 KB) instead, and the CDN `preconnect`/`dns-prefetch` hints were removed.
   - Added `tailwind.config.js` (identical brand theme: navy/brand/cyan colors, Inter/Sora fonts; content globs `./*.html` + `./js/**/*.js`), `src/tailwind.css` entry, and `package.json` (pinned `tailwindcss@3.4.19`, `build:css` / `watch:css` scripts) with a lockfile. `node_modules/` was already git-ignored.

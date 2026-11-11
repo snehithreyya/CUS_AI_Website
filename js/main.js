@@ -53,7 +53,8 @@ const ACTION = {
   services: { label: 'Explore services',    href: 'services.html' },
   industries:{ label: 'Industries we serve', href: 'industries.html', style: 'secondary' },
   insights: { label: 'Read our insights',   href: 'insights.html', style: 'secondary' },
-  faq:      { label: 'See the FAQ',         href: 'faq.html', style: 'secondary' }
+  faq:      { label: 'See the FAQ',         href: 'faq.html', style: 'secondary' },
+  privacy:  { label: 'Read the privacy policy', href: 'privacy.html', style: 'secondary' }
 };
 
 // Grounded knowledge base. Each entry: keyword triggers, an answer,
@@ -239,6 +240,11 @@ const CUS_KB = [
     a: "You can find quick answers on our FAQ page \u2014 what we do, how engagements and pricing work, how to hire talent, and how to start a career with us. If your question isn't there, just ask me or reach the team directly.",
     actions: [ACTION.faq, ACTION.contact]
   },
+  {
+    keys: ['privacy', 'privacy policy', 'personal data', 'my data', 'data collected', 'data protection', 'cookies', 'tracking', 'gdpr request'],
+    a: "Our Privacy Policy explains it in plain language: the contact and booking forms simply open your own email app with a pre-filled message (nothing is stored by the site), this assistant answers from a knowledge base in your browser, and the site runs no ad or analytics trackers today. Please avoid sharing sensitive personal data in chat or forms. To access or delete anything you've sent us, email info@cussolution.com.",
+    actions: [ACTION.privacy, ACTION.contact]
+  },
 ];
 
 // ------------------------------------------------------------
@@ -285,7 +291,8 @@ const FOLLOWUPS = {
   'booking.html': ['What services do you offer?', 'Contact the team', 'See the FAQ'],
   'contact.html': ['Book a consultation', 'What services do you offer?', 'See the FAQ'],
   'insights.html': ['What services do you offer?', 'Book a consultation'],
-  'faq.html': ['What services do you offer?', 'Book a consultation']
+  'faq.html': ['What services do you offer?', 'Book a consultation'],
+  'privacy.html': ['Contact the team', 'See the FAQ']
 };
 function followupsFor(item) {
   const first = (item.actions || []).find(a => a && FOLLOWUPS[a.href]);
