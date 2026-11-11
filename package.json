@@ -1,0 +1,12 @@
+{
+  "name": "cus-ai-website",
+  "private": true,
+  "description": "CUS Solution marketing site — static HTML. npm is only used to precompile Tailwind CSS.",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.19"
+  }
+}

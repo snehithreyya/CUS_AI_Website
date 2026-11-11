@@ -28,6 +28,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Build Tailwind CSS
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build:css
+          rm -rf node_modules
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
