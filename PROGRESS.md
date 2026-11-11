@@ -2,6 +2,18 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 33 — 2026-11-11
+- **Replaced the Tailwind Play CDN with a precompiled stylesheet (performance):** closes the long-standing "pin a compiled Tailwind build" Next-up item. Every page previously loaded `cdn.tailwindcss.com` (a ~400 KB JavaScript compiler that generates CSS in the browser at runtime, causing an unstyled flash and blocking render) plus an inline `tailwind.config` script. All 23 pages now link a static, minified `css/tailwind.css` (~18 KB) instead, and the CDN `preconnect`/`dns-prefetch` hints were removed.
+  - Added `tailwind.config.js` (identical brand theme: navy/brand/cyan colors, Inter/Sora fonts; content globs `./*.html` + `./js/**/*.js`), `src/tailwind.css` entry, and `package.json` (pinned `tailwindcss@3.4.19`, `build:css` / `watch:css` scripts) with a lockfile. `node_modules/` was already git-ignored.
+  - Deploy workflow now runs `npm ci && npm run build:css` before uploading the Pages artifact (then removes `node_modules`), so deployed CSS can never go stale even if a local rebuild is forgotten. README documents the build.
+- Verified: visual regression — full-page Playwright screenshots of all 23 pages at desktop (1280px) and mobile (390px), before (CDN) vs. after (compiled), were pixel-identical (0 differing pixels above threshold across 46 comparisons); compiled CSS hash matched between two independent builds; HTML tag-balance + local href/src sweep clean on all pages; no JS touched.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+- Performance follow-ups: self-host the Inter/Sora fonts (drop the Google Fonts round-trip) and add a Lighthouse CI budget check to the deploy workflow.
+
 ## Day 32 — 2026-10-28
 - **Assistant routing + follow-up chips (`js/main.js`, `css/styles.css`):** `matchKB` now weights each keyword hit by its word count, so specific multi-word keys (e.g. "cloud cost", "contract to hire") outrank broad single words instead of tying on KB order — closes the Day 31 scoring item. Each answer now also renders up to three on-topic follow-up question chips (chosen from the answer's primary action page via a `FOLLOWUPS` map); clicking one submits it and clears the previous chips. RAG-backend replies are unaffected (no chips unless supplied).
 - Verified: `node --check js/main.js` passes; a Node harness ran six sample questions through the new scoring and follow-up lookup, all routed as intended; no HTML touched.
