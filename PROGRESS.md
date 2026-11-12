@@ -2,6 +2,19 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 35 — 2026-11-12
+- **Terms of Use page (`terms.html`)** — closes the top "Next up" item. Plain-language terms in the same layout as `privacy.html` (hero with Home / Terms of Use breadcrumb, BreadcrumbList JSON-LD, OG/Twitter meta, canonical), covering: agreement to terms, acceptable use, information-is-general (no professional/legal advice, no client relationship), the AI Assistant (automated answers, confirm with the team), careers (no job offers or placement guarantees on the site, no candidate fees), intellectual property (short quotes with attribution welcome), third-party links/services, disclaimers and limitation of liability, changes, and contact. Last-updated stamp + "not legal advice" note.
+- **Wired into the site:** "Terms of Use" link added next to "Privacy Policy" in the footer bottom bar on all 25 pages (including 404); `terms.html` added to `sitemap.xml`.
+- **Privacy Policy refresh:** section 4 still said pages load the Tailwind CSS CDN — corrected now that styling is precompiled and self-hosted (only Google Fonts is third-party); added a cross-link to the Terms; bumped last-updated date and sitemap `lastmod`.
+- **Assistant:** new `terms` intent in `CUS_KB` (terms of use/service, acceptable use, disclaimer, copyright, quoting articles) with a "Read the terms of use" action and follow-up chips.
+- Verified: `node --check js/main.js`; Node routing harness (terms / quoting / privacy / services questions all route as intended); HTML tag-balance clean on all 25 pages; local href/src sweep found 0 broken links; JSON-LD and sitemap.xml parse; Tailwind rebuild produced no CSS diff (page reuses existing classes).
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+- Performance: self-host the Inter/Sora fonts (drop the Google Fonts round-trip) and add a Lighthouse CI budget check to the deploy workflow.
+
 ## Day 34 — 2026-11-11
 - **Privacy Policy restored and shipped:** the Nov 9 Privacy Policy work never reached the repo (the GitHub token had expired), and the Tailwind precompile run later overwrote the local footer/JS/sitemap changes. Re-applied on top of the precompiled build: `privacy.html` now links `css/tailwind.css` (CDN script, inline config and CDN preconnects removed); "Privacy Policy" link restored in the footer bottom bar on all 23 other pages; `privacy` intent, action button and follow-up chips restored in `CUS_KB` (`js/main.js`); `privacy.html` entry added to `sitemap.xml`. Rebuilt `css/tailwind.css` so it includes the privacy page's classes.
 - Token renewed in `.github-token`; the precompiled-Tailwind build files (css/tailwind.css, tailwind.config.js, src/, package.json, lockfile, workflow build step) were pushed separately after a brief window where the pages linked a stylesheet that wasn't yet in the repo.
