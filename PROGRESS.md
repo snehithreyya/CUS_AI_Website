@@ -2,6 +2,20 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 36 — 2026-11-17
+- **Self-hosted the Inter and Sora web fonts (performance + privacy)** — closes the "self-host the fonts" half of the performance Next-up item. Every page previously loaded a render-path stylesheet from `fonts.googleapis.com` and then woff2 files from `fonts.gstatic.com` (two extra third-party DNS/TLS connections plus a print/onload swap trick and a `<noscript>` fallback).
+  - Added `fonts/` with the variable woff2 files Google serves (Inter v20 and Sora v17, `latin` + `latin-ext` subsets, ~170 KB total; a browser only downloads the subset a page needs) plus each family's SIL OFL 1.1 license (`OFL-Inter.txt`, `OFL-Sora.txt`).
+  - New `css/fonts.css` declares the four `@font-face` rules with weight ranges (Inter 400–700, Sora 600–800), the same `unicode-range` splits and `font-display: swap`.
+  - All 25 pages (incl. 404) now `preload` the two latin woff2 files and link `css/fonts.css`; the Google Fonts preconnects, async stylesheet and noscript fallback were removed. No page makes a third-party request at load any more.
+  - Privacy Policy section 4 updated (no longer says the browser requests fonts from Google), last-updated date and sitemap `lastmod` bumped. README structure lists `css/fonts.css` and `fonts/`.
+- Verified: Playwright full-page screenshots of all 25 pages at 1280px and 390px, before vs. after — 46/50 pixel-identical; the 4 with small diffs were re-shot and matched (the baseline itself varied run-to-run on those pages, i.e. render noise, not the font swap). `document.fonts` shows Inter + Sora loaded from the self-hosted files with 0 font requests to Google. HTML tag-balance + local href/src sweep clean on all 25 pages; font URLs in `css/fonts.css` resolve; sitemap.xml parses; `node --check js/main.js` passes (no JS changed).
+
+### Next up
+- Add a Lighthouse CI budget check (performance/accessibility/SEO thresholds) to the deploy workflow.
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+
 ## Day 35 — 2026-11-12
 - **Terms of Use page (`terms.html`)** — closes the top "Next up" item. Plain-language terms in the same layout as `privacy.html` (hero with Home / Terms of Use breadcrumb, BreadcrumbList JSON-LD, OG/Twitter meta, canonical), covering: agreement to terms, acceptable use, information-is-general (no professional/legal advice, no client relationship), the AI Assistant (automated answers, confirm with the team), careers (no job offers or placement guarantees on the site, no candidate fees), intellectual property (short quotes with attribution welcome), third-party links/services, disclaimers and limitation of liability, changes, and contact. Last-updated stamp + "not legal advice" note.
 - **Wired into the site:** "Terms of Use" link added next to "Privacy Policy" in the footer bottom bar on all 25 pages (including 404); `terms.html` added to `sitemap.xml`.

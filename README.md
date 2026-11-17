@@ -13,6 +13,8 @@ Once GitHub Pages is enabled, the site publishes at:
 ```
 index.html          Home page (hero, about, services, industries, why-CUS, FAQ, contact)
 css/styles.css      Design system — brand tokens, cards, buttons, chat widget
+css/fonts.css       @font-face rules for the self-hosted Inter + Sora fonts
+fonts/              Variable woff2 files (latin + latin-ext) and their OFL licenses
 css/tailwind.css    Precompiled, minified Tailwind utilities (generated — do not edit by hand)
 src/tailwind.css    Tailwind entry point; tailwind.config.js holds the brand theme
 js/main.js          Nav, scroll reveal, and the AI assistant (RAG-ready client stub)
