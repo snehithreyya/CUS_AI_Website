@@ -1,0 +1,47 @@
+name: Lighthouse CI
+
+# Quality gate: audits key pages for performance, accessibility, best practices and SEO
+# on every push and pull request. Runs separately from the Pages deploy so a regression
+# fails a visible check without blocking a hotfix deploy.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Build Tailwind CSS
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build:css
+
+      - name: Run Lighthouse CI (thresholds in lighthouserc.json)
+        run: npx --yes @lhci/cli@0.15.1 autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/
+          retention-days: 14

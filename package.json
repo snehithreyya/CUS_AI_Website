@@ -4,7 +4,8 @@
   "description": "CUS Solution marketing site — static HTML. npm is only used to precompile Tailwind CSS.",
   "scripts": {
     "build:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o css/tailwind.css --minify",
-    "watch:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o css/tailwind.css --watch"
+    "watch:css": "tailwindcss -c tailwind.config.js -i src/tailwind.css -o css/tailwind.css --watch",
+    "lighthouse": "npx --yes @lhci/cli@0.15.1 autorun"
   },
   "devDependencies": {
     "tailwindcss": "3.4.19"

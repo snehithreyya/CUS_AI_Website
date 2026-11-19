@@ -2,6 +2,24 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 37 — 2026-11-19
+- **Lighthouse CI quality gate** — closes the top "Next up" item. New `.github/workflows/lighthouse.yml` runs on every push to `main`, every pull request and on demand: builds the Tailwind CSS, then `@lhci/cli@0.15.1 autorun` audits nine representative pages (home, about, services, cloud-solutions, careers, contact, booking, insights, one article) with the desktop preset. Reports are uploaded as the `lighthouse-reports` artifact. Kept separate from the Pages deploy so a regression shows as a failed check without blocking a hotfix deploy.
+  - `lighthouserc.json` thresholds: accessibility = 100 and SEO = 100 (errors), best practices >= 95, CLS < 0.1; page-weight budgets via `resource-summary` (total < 450 KB, JS < 60 KB, CSS < 40 KB, fonts < 160 KB, images < 200 KB, 0 third-party requests). Performance >= 90, LCP < 2.5 s and TBT < 200 ms are warnings (CI runners are noisy). `npm run lighthouse` runs it locally; `.lighthouseci/` is git-ignored.
+- **Accessibility fixes the gate surfaced (all 25 pages):**
+  - Header wordmark "Solution" moved from `brand-400` to a new `brand-300` (#82a5ff) token for stronger contrast on the translucent navy header.
+  - Footer column headings changed from `<h4>` to `<h2>` (same classes, no visual change) — fixes skipped heading levels.
+  - Category pills on light "Related reading"/article cards now use `text-brand-600` / `text-cyan-700` (were below 3:1, now >= 4.5:1).
+  - `services.html` "Learn more" links get visually hidden context ("about Technology Consulting", etc.) for descriptive link text.
+  - **Visible bug fixed on `insights.html`:** the Featured article card is a dark card but sat in a white section, so its white headline was invisible. The section is now `section-dark` (cyan label, padded card). The "Browse by topic" pills used the dark-surface `.chip` style on white; they now use a light pill with a navy label.
+- Note: an earlier attempt at this change today was prepared but never reached the repo; it was re-applied on top of the current `main` and the Tailwind CSS rebuilt.
+- Verified: full `lhci autorun` with the committed config on the nine gated pages exits 0 (all error-level assertions pass); `node --check js/main.js`; HTML tag-balance + local href/src sweep clean on all 25 pages; rebuilt `css/tailwind.css` contains the new `brand-300`, `cyan-700` and pill utilities.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+- Add a mobile-preset Lighthouse pass (and possibly raise the performance warning to an error once CI scores are stable).
+
 ## Day 36 — 2026-11-17
 - **Self-hosted the Inter and Sora web fonts (performance + privacy)** — closes the "self-host the fonts" half of the performance Next-up item. Every page previously loaded a render-path stylesheet from `fonts.googleapis.com` and then woff2 files from `fonts.gstatic.com` (two extra third-party DNS/TLS connections plus a print/onload swap trick and a `<noscript>` fallback).
   - Added `fonts/` with the variable woff2 files Google serves (Inter v20 and Sora v17, `latin` + `latin-ext` subsets, ~170 KB total; a browser only downloads the subset a page needs) plus each family's SIL OFL 1.1 license (`OFL-Inter.txt`, `OFL-Sora.txt`).

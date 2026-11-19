@@ -18,7 +18,8 @@ fonts/              Variable woff2 files (latin + latin-ext) and their OFL licen
 css/tailwind.css    Precompiled, minified Tailwind utilities (generated — do not edit by hand)
 src/tailwind.css    Tailwind entry point; tailwind.config.js holds the brand theme
 js/main.js          Nav, scroll reveal, and the AI assistant (RAG-ready client stub)
-.github/workflows/  GitHub Actions workflow that deploys to Pages on every push
+.github/workflows/  deploy.yml publishes to Pages on push; lighthouse.yml runs the quality gate
+lighthouserc.json   Lighthouse CI pages, score thresholds and page-weight budgets
 PROGRESS.md         Running log of daily incremental work
 ```
 
@@ -41,6 +42,15 @@ npm run build:css  # or: npm run watch:css while editing
 
 The deploy workflow also rebuilds `css/tailwind.css` before publishing, so a forgotten local
 rebuild never ships stale styles.
+
+## Quality gate (Lighthouse CI)
+`.github/workflows/lighthouse.yml` audits nine representative pages on every push and pull
+request with Lighthouse (desktop preset). Thresholds live in `lighthouserc.json`:
+accessibility and SEO must score 100, best practices at least 95, layout shift under 0.1,
+and each page must stay within its weight budget (total under 450 KB, JS under 60 KB, CSS
+under 40 KB, fonts under 160 KB, images under 200 KB, zero third-party requests).
+Performance score and LCP are reported as warnings. Reports are attached to each run as
+the `lighthouse-reports` artifact. Run it locally with `npm run lighthouse` (needs Chrome).
 
 ## Deployment
 Pushing to `main` triggers `.github/workflows/deploy.yml`, which publishes the site to
