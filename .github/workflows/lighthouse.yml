@@ -1,6 +1,7 @@
 name: Lighthouse CI
 
-# Quality gate: audits key pages for performance, accessibility, best practices and SEO
+# Quality gate: audits every page, on desktop and on emulated mobile, for performance,
+# accessibility, best practices and SEO
 # on every push and pull request. Runs separately from the Pages deploy so a regression
 # fails a visible check without blocking a hotfix deploy.
 on:
@@ -18,8 +19,17 @@ concurrency:
 
 jobs:
   lighthouse:
+    name: Lighthouse (${{ matrix.form-factor }})
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - form-factor: desktop
+            config: lighthouserc.json
+          - form-factor: mobile
+            config: lighthouserc.mobile.json
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,13 +45,13 @@ jobs:
           npm ci --no-audit --no-fund
           npm run build:css
 
-      - name: Run Lighthouse CI (thresholds in lighthouserc.json)
-        run: npx --yes @lhci/cli@0.15.1 autorun
+      - name: Run Lighthouse CI (thresholds in ${{ matrix.config }})
+        run: npx --yes @lhci/cli@0.15.1 autorun --config=${{ matrix.config }}
 
       - name: Upload Lighthouse reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse-reports
+          name: lighthouse-reports-${{ matrix.form-factor }}
           path: .lighthouseci/
           retention-days: 14

@@ -2,6 +2,24 @@
 
 A running log of incremental daily work on the CUS Solution website & AI assistant.
 
+## Day 38 — 2026-11-23
+- **Mobile Lighthouse pass + full-site coverage for the quality gate** — closes the "mobile-preset Lighthouse pass" Next-up item.
+  - New `lighthouserc.mobile.json`: same assertions as desktop but with Lighthouse's default mobile emulation (Moto G-class viewport, simulated slow-4G + 4x CPU throttling).
+  - `.github/workflows/lighthouse.yml` now runs a `desktop` / `mobile` matrix (`fail-fast: false`, per-form-factor job names and report artifacts `lighthouse-reports-desktop` / `-mobile`), so a phone-only regression shows as its own failed check.
+  - Both configs now audit **all 25 pages** (was 9), including the 404, privacy, terms, FAQ, students, industries, the four service-detail pages and all eight Insights articles.
+  - Performance score >= 90 promoted from warning to **error** on both form factors (every page scored 100 locally on both, with LCP ~1.66 s and TBT <= 44 ms on throttled mobile). LCP/TBT remain warnings.
+  - Switched to `assertMatrix`: the 404 page is intentionally `noindex`, so for it the SEO category score is replaced by the individual SEO audits (title, meta description, status code, link text, crawlable anchors, robots.txt, hreflang, canonical) with only `is-crawlable` off.
+  - `npm run lighthouse` (desktop), `lighthouse:mobile`, `lighthouse:all` scripts; README quality-gate section rewritten.
+- No site pages changed — the mobile audit found no accessibility, SEO, best-practice or performance issues to fix.
+- Verified: `lhci autorun` with both committed configs over all 25 pages exits 0 (all 50 runs: performance/accessibility/best-practices/SEO 100, except the expected 404 SEO score handled by the matrix); workflow YAML and all JSON configs parse; Tailwind rebuild produced no CSS diff.
+- Note: when a new page is added, add its URL to both `lighthouserc.json` and `lighthouserc.mobile.json`.
+
+### Next up
+- Wire the booking scheduler placeholder to a real Calendly/Cal.com embed when an account URL is available.
+- Wire `ASSISTANT_CONFIG.ragEndpoint` to a live retrieval backend when available; add streaming responses.
+- Testimonials/social-proof section (real, attributable quotes only — none available yet).
+- Automated link/HTML validation step in CI (tag balance, local href/src sweep, sitemap coverage) so the manual checks run on every push.
+
 ## Day 37 — 2026-11-19
 - **Lighthouse CI quality gate** — closes the top "Next up" item. New `.github/workflows/lighthouse.yml` runs on every push to `main`, every pull request and on demand: builds the Tailwind CSS, then `@lhci/cli@0.15.1 autorun` audits nine representative pages (home, about, services, cloud-solutions, careers, contact, booking, insights, one article) with the desktop preset. Reports are uploaded as the `lighthouse-reports` artifact. Kept separate from the Pages deploy so a regression shows as a failed check without blocking a hotfix deploy.
   - `lighthouserc.json` thresholds: accessibility = 100 and SEO = 100 (errors), best practices >= 95, CLS < 0.1; page-weight budgets via `resource-summary` (total < 450 KB, JS < 60 KB, CSS < 40 KB, fonts < 160 KB, images < 200 KB, 0 third-party requests). Performance >= 90, LCP < 2.5 s and TBT < 200 ms are warnings (CI runners are noisy). `npm run lighthouse` runs it locally; `.lighthouseci/` is git-ignored.
